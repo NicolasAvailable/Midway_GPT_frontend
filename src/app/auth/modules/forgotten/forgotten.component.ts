@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'view-forgotten',
+  selector: 'app-forgotten',
   templateUrl: './forgotten.component.html',
   styleUrls: ['./forgotten.component.css']
 })
