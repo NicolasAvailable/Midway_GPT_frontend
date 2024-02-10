@@ -11,15 +11,15 @@ export class OauthGoogleService {
     this.iniLogin();
   }
 
-  private iniLogin(){
+  private async iniLogin(){
     const config: AuthConfig = oAuthGoogleConfig;
     this.oauthService.configure(config);
     this.oauthService.setupAutomaticSilentRefresh();
-    this.oauthService.loadDiscoveryDocumentAndTryLogin();
+    await this.oauthService.loadDiscoveryDocumentAndTryLogin();
   }
 
-  public login(){
-    this.oauthService.initImplicitFlowInPopup();
+  public async login(){
+    await this.oauthService.initLoginFlowInPopup();
   }
 
   public logout() {
