@@ -1,19 +1,76 @@
 <section class="login__container">
-  <div class="login__left__content"></div>
-  <div class="login__right__content">
-    <div class="login__title__box">
-      <h2 class="login__title text-4xl">
-        Accede con tu cuenta
-      </h2>
+  <section class="login__left__content"></section>
+  <section class="login__right__content">
+    <div class="login__content">
+      <div class="login__img__box">
+        <img
+        src="assets/img/logo-midway.svg"
+        >
+      </div>
+      <div class="login__inputs__box">
+        <form class="login__form__content">
+          <div class="login__input__email input__box">
+            <label 
+            class="input__label" 
+            for="email">
+              Email
+            </label>
+            <input
+            class="input__style"
+            type="text" 
+            id="email"
+            >
+          </div>
+          <div class="login__password__email input__box">
+            <label 
+            class="input__label" 
+            for="password">
+              Password
+            </label>
+            <input
+            class="input__style"
+            type="text" 
+            id="password"
+            >
+          </div>
+        </form>
+      </div>
+      <div class="login__button__box">
+        <button
+        class="login__button"
+        >
+          Log in
+        </button>
+      </div>
+      <div class="login__oauth__box">
+        <div class="login__oauth__text">
+          <hr class="flex-grow mr-2">
+          or log in with
+          <hr class="flex-grow ml-2">
+        </div>
+        <div class="login__oauth">
+          <button
+          class="oauth__button"
+          (click)="loginWithGoogle()"
+          >
+            <img
+            class="oauth__logo" 
+            src="assets/img/auth/logo-google.png"
+            >
+              Google
+          </button>
+          <button
+          class="oauth__button"
+          (click)="loginWithGoogle()"
+          >
+            <img
+            class="oauth__logo" 
+            src="assets/img/auth/logo-facebook.png"
+            >
+              Facebook
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="login__buttons__box">
-      <button 
-      class="btn btn-outline"
-      (click)="loginWithGoogle()"
-      >
-        <i class="fa-brands fa-google"></i>
-        Google
-      </button>
-    </div>
-  </div>
+  </section>
 </section>

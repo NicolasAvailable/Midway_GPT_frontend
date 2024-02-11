@@ -9,8 +9,10 @@
     --color-secondary: #f6f8fc;
     --color-success: #2acb72;
     --color-warn: #dc3545;
+    --color-black: #3f3e45;
 }
 
 body {
     background-color: white;
+    color: black;
 }
