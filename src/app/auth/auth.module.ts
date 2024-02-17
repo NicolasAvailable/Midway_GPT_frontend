@@ -11,7 +11,7 @@ import { RouterOutlet } from '@angular/router';
   imports: [
     CommonModule,
     RouterOutlet,
-    AuthRoutingModule,
+    AuthRoutingModule
   ],
 })
 export class AuthModule { }

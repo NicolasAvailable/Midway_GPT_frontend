@@ -1,0 +1,23 @@
+
+
+@if (showTemplateAlert) {
+  <div 
+  class="alert__container"
+  [ngClass]="{
+    'show': showTemplateAlert,
+    'hide': !showTemplateAlert
+  }"
+  >
+    @switch (selectedAlert) {
+      @case (typeAlert.SUCCESS) {
+        <mw-succes-alert [text]="alertText"></mw-succes-alert>
+      }
+      @case (typeAlert.ERROR) {
+        <mw-error-alert [text]="alertText"></mw-error-alert>
+      }
+      @case (typeAlert.WARNING) {
+        <mw-warning-alert [text]="alertText"></mw-warning-alert>
+      }
+    }
+  </div>
+}

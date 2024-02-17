@@ -8,7 +8,11 @@
         >
       </div>
       <div class="login__inputs__box">
-        <form class="login__form__content">
+        <form 
+        class="login__form__content"
+        [formGroup]="loginForm"
+        (ngSubmit)="canLogin()"
+        >
           <div class="login__input__email input__box">
             <label 
             class="input__label" 
@@ -19,18 +23,21 @@
             class="input__style"
             type="text" 
             id="email"
+            formControlName="email"
             >
           </div>
           <div class="login__password__email input__box">
             <label 
             class="input__label" 
-            for="password">
+            for="password"
+            >
               Password
             </label>
             <input
             class="input__style"
             type="text" 
             id="password"
+            formControlName="password"
             >
           </div>
         </form>
@@ -38,6 +45,7 @@
       <div class="login__button__box">
         <button
         class="login__button"
+        (click)="canLogin()"
         >
           Log in
         </button>
@@ -74,3 +82,7 @@
     </div>
   </section>
 </section>
+
+<mw-alert
+#mwAlert
+></mw-alert>
