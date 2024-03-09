@@ -11,7 +11,6 @@
         <form 
         class="login__form__content"
         [formGroup]="loginForm"
-        (ngSubmit)="canLogin()"
         >
           <div class="login__input__email input__box">
             <label 
@@ -33,12 +32,28 @@
             >
               Password
             </label>
-            <input
-            class="input__style"
-            type="text" 
-            id="password"
-            formControlName="password"
+            <div class="input__password">
+              <input
+              class="input__style password__input"
+              type="password" 
+              id="password"
+              formControlName="password"
+              >
+              <button 
+              class="show__password"
+              (click)="showPassword()"
+              >
+                <i class="fa-solid fa-eye show__icon"></i>
+              </button>
+            </div>
+          </div>
+          <div class="login__forgot__password__box">
+            <button
+            class="forgot__password__text"
+            (click)="goToForgotPassword()"
             >
+              Forgot password?
+            </button>
           </div>
         </form>
       </div>

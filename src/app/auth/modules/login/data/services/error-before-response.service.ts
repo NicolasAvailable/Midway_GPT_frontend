@@ -21,7 +21,7 @@ export class ErrorBeforeResponse {
     }
 
     public getErrorOfPassword(){
-        const errorKeys = Object.keys(this.form?.get('email')?.errors ?? {});
+        const errorKeys = Object.keys(this.form?.get('password')?.errors ?? {});
         const constantKeys = Object.keys(PASSWORD_ERRORS);
         const matchedKey = constantKeys.find( (key, i) => errorKeys[i]?.includes(key));
         return matchedKey === 'require' ? PASSWORD_ERRORS.require : PASSWORD_ERRORS.pattern
