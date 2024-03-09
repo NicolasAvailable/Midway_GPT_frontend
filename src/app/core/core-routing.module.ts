@@ -6,15 +6,24 @@ import { CoreComponent } from './view/core.component';
 const routes: Routes = [
   {
     path: '',
-    component: CoreComponent
-  }
-]
+    component: CoreComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full',
+      },
+      {
+        path: 'home',
+        loadChildren: () =>
+          import('./modules/home/home.module').then((m) => m.HomeModule),
+      },
+    ],
+  },
+];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
-  ],
-  declarations: []
+  imports: [CommonModule, RouterModule.forChild(routes)],
+  declarations: [],
 })
-export class CoreRoutingModule { }
+export class CoreRoutingModule {}
