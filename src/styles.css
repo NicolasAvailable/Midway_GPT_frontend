@@ -1,18 +1,31 @@
+@import "@ng-select/ng-select/themes/default.theme.css";
+@import "./app/@midway-ui/styles/midway-ui.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-    --color-main: #D371DD;
-    --color-primary: #4557da;
-    --color-primary-light: #e9eff2;
-    --color-secondary: #f6f8fc;
-    --color-success: #2acb72;
-    --color-warn: #dc3545;
-    --color-black: #3f3e45;
+  --color-main: #d371dd;
+  --color-primary: #4557da;
+  --color-primary-light: #e9eff2;
+  --color-secondary: #f6f8fc;
+  --color-success: #2acb72;
+  --color-warn: #dc3545;
+  --color-black: #3f3e45;
+  --color-stroke: #d7d7d7;
 }
 
 body {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
+}
+
+.font-subtitle {
+  font-size: 15px;
+}
+
+app-core {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }

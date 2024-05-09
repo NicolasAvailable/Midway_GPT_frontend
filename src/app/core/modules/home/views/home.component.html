@@ -1,3 +1,66 @@
-<p>
-  home works!
-</p>
+<section class="home__container">
+  <div class="content__box px-6 py-5 shadow-xl">
+    <div class="content__prompt__box">
+      <h5 class="font-subtitle font-semibold">Escriba su prompt</h5>
+      <textarea
+        class="bg-transparent prompt__textarea"
+        [(ngModel)]="promp"
+      ></textarea>
+    </div>
+    <div class="content__select__box flex">
+      <div class="content__select__document__box flex-1">
+        <label class="font-subtitle font-semibold"
+          >Tipo de documento a exportar</label
+        >
+        <ng-select
+          bindLabel="name"
+          bindValue="id"
+          [placeholder]="'Seleccione el archivo'"
+          [searchable]="false"
+          [items]="multimedia"
+          [(ngModel)]="selectMultimedia"
+          (change)="multemediaSelected()"
+        >
+        </ng-select>
+      </div>
+      <div class="content__select__document__box flex-1">
+        <label class="font-subtitle font-semibold">Idioma del documento</label>
+        <ng-select
+          bindLabel="name"
+          bindValue="id"
+          [placeholder]="'Seleccione el archivo'"
+          [searchable]="false"
+          [items]="languages"
+          [(ngModel)]="selectLanguage"
+          (change)="multemediaSelected()"
+        >
+        </ng-select>
+      </div>
+      <div class="content__select__document__box flex-1">
+        <label class="font-subtitle font-semibold">Formato del documento</label>
+        <ng-select
+          bindLabel="name"
+          bindValue="id"
+          [placeholder]="'Seleccione el archivo'"
+          [searchable]="false"
+          [items]="format"
+          [(ngModel)]="selectFormat"
+          (change)="multemediaSelected()"
+        >
+        </ng-select>
+      </div>
+    </div>
+    <div class="content__button__box">
+      <button class="content__button" (click)="generateDocument()">
+        Generar Documento
+      </button>
+    </div>
+  </div>
+  <div class="content__box shadow-xl">
+    <div class="mockup-code bg-white">
+      <!-- <pre data-prefix="$"><code>Generando documento</code></pre> -->
+      <pre data-prefix=">" class="text-warning"><code>Generando...</code></pre>
+      <pre data-prefix=">" class="text-success"><code>Listo!</code></pre>
+    </div>
+  </div>
+</section>

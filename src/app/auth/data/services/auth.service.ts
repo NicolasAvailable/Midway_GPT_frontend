@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
-import { API } from '../../../config/api.config';
 import { HttpClient } from '@angular/common/http';
 import { LoginRequest } from '../../modules/login/data/models/login-request.models';
 import { Observable } from 'rxjs';
 import { LoginResponse } from '../../modules/login/data/models/login-response.models';
+import { AppService } from '../../../app.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class AuthService {
+export class AuthService extends AppService {
+  private url = this.getURL();
 
-  private url = API.url_develop;
+  constructor(http: HttpClient) {
+    super(http);
+  }
 
-  constructor(private http: HttpClient) { }
-
-  public login(body: LoginRequest): Observable<LoginResponse>{
-    const url = `${this.url}/auth/local/login`
+  public login(body: LoginRequest): Observable<LoginResponse> {
+    const url = `${this.url}/auth/local/login`;
     return this.http.post<LoginResponse>(url, body);
   }
 }
