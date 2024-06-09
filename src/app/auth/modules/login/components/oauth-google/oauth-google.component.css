@@ -1,0 +1,23 @@
+.oauth__button {
+  width: 100%;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid #bfbfc3;
+  color: var(--color-black);
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.oauth__button:hover {
+  background-color: #bfbfc3;
+  border: 1px solid white;
+}
+
+.oauth__logo {
+  width: 1.35vw;
+}

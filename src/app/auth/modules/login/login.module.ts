@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MwAlertModule } from '../../../shared/components/alerts/mw-alert.module';
 import { ShowPasswordDirective } from './data/directives/show-password.directive';
+import { OauthGoogleComponent } from './components/oauth-google/oauth-google.component';
 
 const router: Routes = [{ path: '', component: LoginComponent }];
 
@@ -15,6 +16,6 @@ const router: Routes = [{ path: '', component: LoginComponent }];
     ReactiveFormsModule,
     MwAlertModule,
   ],
-  declarations: [LoginComponent, ShowPasswordDirective],
+  declarations: [LoginComponent, ShowPasswordDirective, OauthGoogleComponent],
 })
 export class LoginModule {}

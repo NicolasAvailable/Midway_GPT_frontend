@@ -9,7 +9,7 @@
   --color-primary: #4557da;
   --color-primary-light: #e9eff2;
   --color-secondary: #f6f8fc;
-  --color-success: #2acb72;
+  --color-success: #8effa7;
   --color-warn: #dc3545;
   --color-black: #3f3e45;
   --color-stroke: #d7d7d7;
@@ -28,4 +28,10 @@ app-core {
   display: flex;
   width: 100%;
   justify-content: center;
+}
+
+.toast__top__right {
+  position: fixed;
+  top: 2%;
+  right: 2%;
 }

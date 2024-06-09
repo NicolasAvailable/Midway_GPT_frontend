@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { OauthGoogleService } from '../../../data/services/oauth-google.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { EMAIL_REGEX } from '../data/constants/email-pattern.constants';
 import { LoginTemplateService } from '../data/services/login-template.service';
 
 @Component({
-  selector: 'app-login',
+  selector: 'mw-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
@@ -15,8 +13,6 @@ export class LoginComponent implements OnInit {
   public showPassword: boolean = false;
 
   constructor(
-    private router: Router,
-    private oAuthGoogleService: OauthGoogleService,
     private formBuilder: FormBuilder,
     private loginTemplateService: LoginTemplateService
   ) {}
@@ -40,15 +36,10 @@ export class LoginComponent implements OnInit {
   }
 
   public login() {
+    if (this.form.invalid) return;
     const email = this.form?.get('email')?.value;
     const password = this.form?.get('password')?.value;
-    this.loginTemplateService.login(email, password, () =>
-      this.router.navigate(['app'])
-    );
-  }
-
-  public loginWithGoogle() {
-    this.oAuthGoogleService.login();
+    this.loginTemplateService.login(email, password);
   }
 
   public goToForgotPassword() {}

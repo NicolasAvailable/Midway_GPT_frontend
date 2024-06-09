@@ -1,181 +1,157 @@
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
-    background-color: var(--color-main);
+  background-color: var(--color-main);
 }
 
 input::-webkit-input-placeholder {
-    color: black;
-  }
+  color: black;
+}
 
 .login__container {
-    display: flex;
-    height: 100vh;
-    width: 100%;
+  display: flex;
+  height: 100vh;
+  width: 100%;
 }
 
-.login__left__content{
-    width: 100%;
-    height: 100%;
+.login__left__content {
+  width: 100%;
+  height: 100%;
 }
 
-.login__right__content{
-    height: 100%;
-    width: 85%;
+.login__right__content {
+  height: 100%;
+  width: 85%;
 }
 
-.login__left__content{
-    background-color: var(--color-main);
+.login__left__content {
+  background-color: var(--color-main);
 }
 
-.login__right__content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.login__right__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.login__content{
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.login__content {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.login__img__box{
-    display: flex;
-    justify-content: center;
+.login__img__box {
+  display: flex;
+  justify-content: center;
 }
 
-.login__title{
-    color: black;
-    font-weight: 700;
-    text-align: center;
+.login__title {
+  color: black;
+  font-weight: 700;
+  text-align: center;
 }
 
-.input__label{
-    font-weight: 500;
-    font-size: 14px;
-    color: var(--color-black);
+.input__label {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-black);
 }
 
-.input__box{
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+.input__box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.login__form__content{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.login__form__content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.input__style{
-    height: 36px;
-    width: 100%;
-    border: 2px solid var(--color-main) !important;
-    border-radius: 5px;
-    background-color: white;
-    padding-left: 0.4vw;
-    padding-right: 0.4vw;
-    padding-top: 0.2vw;
-    padding-bottom: 0.2vw;
-    font-size: 14px;
+.input__style {
+  height: 36px;
+  width: 100%;
+  border: 2px solid var(--color-main) !important;
+  border-radius: 5px;
+  background-color: white;
+  padding-left: 0.4vw;
+  padding-right: 0.4vw;
+  padding-top: 0.2vw;
+  padding-bottom: 0.2vw;
+  font-size: 14px;
 }
 
-.input__style:focus{
-    outline: none;
+.input__style:focus {
+  outline: none;
 }
 
-.input__style::placeholder{
-    background-color: white;
+.input__style::placeholder {
+  background-color: white;
 }
 
-.login__button{
-    width: 100%;
-    height: 36px;
-    color: white;
-    border-radius: 5px;
-    text-align: center;
-    background: linear-gradient(to right, #3C2C9FB2, #C934D2B2);
+.login__button {
+  width: 100%;
+  height: 36px;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  background: linear-gradient(to right, #3c2c9fb2, #c934d2b2);
 }
 
-.login__oauth__box{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.login__oauth__box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.login__oauth__text{
-    display: flex;
-    align-items: center;
-    color: var(--color-black);
+.login__oauth__text {
+  display: flex;
+  align-items: center;
+  color: var(--color-black);
 }
 
-.login__oauth{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.login__oauth {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.login__forgot__password__box{
-    display: flex;
-    align-items: center;
-    width: 100%;
+.login__forgot__password__box {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
-.forgot__password__text{
-    color: var(--color-main);
-    font-size: 12px;
-    font-weight: 700;
+.forgot__password__text {
+  color: var(--color-main);
+  font-size: 12px;
+  font-weight: 700;
 }
 
-.login__button__box{
-    margin-top: -3px;
+.login__button__box {
+  margin-top: -3px;
 }
 
-.oauth__button{
-    width: 100%;
-    height: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    border: 1px solid #bfbfc3;
-    color: var(--color-black);
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 400;
-    transition: all 0.3s ease;
+.input__password {
+  position: relative;
 }
 
-.oauth__button:hover{
-    background-color: #bfbfc3;
-    border: 1px solid white;
+.password__input {
+  padding-right: 1.8vw !important;
 }
 
-.oauth__logo{
-    width: 1.35vw;
+.show__password {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 7%;
 }
 
-.input__password{
-    position: relative;
-}
-
-.password__input{
-    padding-right: 1.8vw !important;
-}
-
-.show__password{
-    position: absolute;
-    right: 0;
-    height: 100%;
-    width: 7%;
-}
-
-.show__icon{
-    background: white;
-    width: 90%;
-    font-size: 13px;
+.show__icon {
+  background: white;
+  width: 90%;
+  font-size: 13px;
 }

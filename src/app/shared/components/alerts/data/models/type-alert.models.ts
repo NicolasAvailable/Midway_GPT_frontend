@@ -1,7 +1,5 @@
-
-
 export enum TypeAlert {
-    ERROR = "error",
-    SUCCESS = "success",
-    WARNING = "warning"
+  ERROR = 'alert.error',
+  SUCCESS = 'alert.success',
+  WARNING = 'alert.warning',
 }

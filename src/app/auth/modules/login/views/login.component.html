@@ -36,10 +36,7 @@
             </div>
           </div>
           <div class="login__forgot__password__box">
-            <button
-              class="forgot__password__text"
-              (click)="goToForgotPassword()"
-            >
+            <button class="forgot__password__text" routerLink="/forgotten">
               Forgot password?
             </button>
           </div>
@@ -55,16 +52,10 @@
           <hr class="flex-grow ml-2" />
         </div>
         <div class="login__oauth">
-          <button class="oauth__button" (click)="loginWithGoogle()">
-            <img class="oauth__logo" src="assets/img/auth/logo-google.png" />
-            Google
-          </button>
-          <button class="oauth__button" (click)="loginWithGoogle()">
-            <img class="oauth__logo" src="assets/img/auth/logo-facebook.png" />
-            Facebook
-          </button>
+          <mw-oauth-google></mw-oauth-google>
         </div>
       </div>
+      <div class="login__register__box"></div>
     </div>
   </section>
 </section>
