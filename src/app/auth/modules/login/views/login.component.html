@@ -3,45 +3,33 @@
   <section class="login__right__content">
     <div class="login__content">
       <div class="login__img__box">
-        <img
-        src="assets/img/logo-midway.svg"
-        >
+        <img src="assets/img/logo-midway.svg" />
       </div>
       <div class="login__inputs__box">
-        <form 
-        class="login__form__content"
-        [formGroup]="loginForm"
-        >
+        <form class="login__form__content" [formGroup]="form">
           <div class="login__input__email input__box">
-            <label 
-            class="input__label" 
-            for="email">
-              Email
-            </label>
+            <label class="input__label" for="email"> Email </label>
             <input
-            class="input__style"
-            type="text" 
-            id="email"
-            formControlName="email"
-            >
+              class="input__style"
+              type="text"
+              id="email"
+              formControlName="email"
+            />
           </div>
           <div class="login__password__email input__box">
-            <label 
-            class="input__label" 
-            for="password"
-            >
-              Password
-            </label>
+            <label class="input__label" for="password"> Password </label>
             <div class="input__password">
               <input
-              class="input__style password__input"
-              type="password" 
-              id="password"
-              formControlName="password"
-              >
-              <button 
-              class="show__password"
-              (click)="showPassword()"
+                class="input__style password__input"
+                type="password"
+                id="password"
+                formControlName="password"
+                onShowPassword
+                [showPassword]="showPassword"
+              />
+              <button
+                class="show__password"
+                (click)="showPassword = !showPassword"
               >
                 <i class="fa-solid fa-eye show__icon"></i>
               </button>
@@ -49,8 +37,8 @@
           </div>
           <div class="login__forgot__password__box">
             <button
-            class="forgot__password__text"
-            (click)="goToForgotPassword()"
+              class="forgot__password__text"
+              (click)="goToForgotPassword()"
             >
               Forgot password?
             </button>
@@ -58,46 +46,25 @@
         </form>
       </div>
       <div class="login__button__box">
-        <button
-        class="login__button"
-        (click)="canLogin()"
-        >
-          Log in
-        </button>
+        <button class="login__button" (click)="login()">Log in</button>
       </div>
       <div class="login__oauth__box">
         <div class="login__oauth__text">
-          <hr class="flex-grow mr-2">
+          <hr class="flex-grow mr-2" />
           or log in with
-          <hr class="flex-grow ml-2">
+          <hr class="flex-grow ml-2" />
         </div>
         <div class="login__oauth">
-          <button
-          class="oauth__button"
-          (click)="loginWithGoogle()"
-          >
-            <img
-            class="oauth__logo" 
-            src="assets/img/auth/logo-google.png"
-            >
-              Google
+          <button class="oauth__button" (click)="loginWithGoogle()">
+            <img class="oauth__logo" src="assets/img/auth/logo-google.png" />
+            Google
           </button>
-          <button
-          class="oauth__button"
-          (click)="loginWithGoogle()"
-          >
-            <img
-            class="oauth__logo" 
-            src="assets/img/auth/logo-facebook.png"
-            >
-              Facebook
+          <button class="oauth__button" (click)="loginWithGoogle()">
+            <img class="oauth__logo" src="assets/img/auth/logo-facebook.png" />
+            Facebook
           </button>
         </div>
       </div>
     </div>
   </section>
 </section>
-
-<mw-alert
-#mwAlert
-></mw-alert>

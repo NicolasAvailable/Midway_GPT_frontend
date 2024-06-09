@@ -16,7 +16,6 @@ export class HomeService extends AppService {
 
   public generateDocument(body: DocumentBody): Observable<any> {
     const url = `${this.url}/generator`;
-    console.log(url);
     return this.http.post<DocumentBody>(url, body);
   }
 

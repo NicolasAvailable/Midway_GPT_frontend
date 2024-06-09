@@ -15,13 +15,10 @@ export class AppComponent implements OnInit {
 
   private verifyIfUserIsLogged() {
     const accessToken = localStorage.getItem('access_token');
-    console.log(accessToken);
     if (accessToken) {
       this.changeRouteTo('app/home');
-      console.log('home');
     } else {
       this.changeRouteTo('auth');
-      console.log('auth');
     }
   }
 

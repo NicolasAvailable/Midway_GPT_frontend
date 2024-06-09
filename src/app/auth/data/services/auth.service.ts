@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoginRequest } from '../../modules/login/data/models/login-request.models';
-import { Observable } from 'rxjs';
-import { LoginResponse } from '../../modules/login/data/models/login-response.models';
+import { map } from 'rxjs';
+import {
+  LoginData,
+  LoginResponse,
+} from '../../modules/login/data/models/login-response.models';
 import { AppService } from '../../../app.service';
 
 @Injectable({
@@ -15,8 +18,23 @@ export class AuthService extends AppService {
     super(http);
   }
 
-  public login(body: LoginRequest): Observable<LoginResponse> {
-    const url = `${this.url}/auth/local/login`;
-    return this.http.post<LoginResponse>(url, body);
+  public login(body: LoginRequest) {
+    return new Promise<void>((resolve, reject) => {
+      const url = `${this.url}/auth/local/login`;
+      this.http
+        .post<LoginResponse>(url, body)
+        .pipe(map((value) => value.data))
+        .subscribe(
+          (value: LoginData) => {
+            this.success(value);
+          },
+          (error) => reject()
+        );
+    });
+  }
+
+  private success(value: LoginData) {
+    localStorage.setItem('access_token', value.access_token);
+    localStorage.setItem('token_type', value.token_type);
   }
 }

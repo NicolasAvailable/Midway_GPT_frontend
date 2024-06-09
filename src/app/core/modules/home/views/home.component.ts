@@ -27,9 +27,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {}
 
-  public multemediaSelected() {
-    console.log(this.selectMultimedia);
-  }
+  public multemediaSelected() {}
 
   public generateDocument() {
     const documentBody: DocumentBody = {
