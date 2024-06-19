@@ -36,7 +36,10 @@
             </div>
           </div>
           <div class="login__forgot__password__box">
-            <button class="forgot__password__text" routerLink="/forgotten">
+            <button
+              class="forgot__password__text"
+              [routerLink]="['../forgotten']"
+            >
               Forgot password?
             </button>
           </div>
@@ -55,7 +58,14 @@
           <mw-oauth-google></mw-oauth-google>
         </div>
       </div>
-      <div class="login__register__box"></div>
+      <div class="login__register__box">
+        <p>
+          Don't have an account yet?
+          <a class="login__register" [routerLink]="['../register']"
+            >Register now</a
+          >
+        </p>
+      </div>
     </div>
   </section>
 </section>

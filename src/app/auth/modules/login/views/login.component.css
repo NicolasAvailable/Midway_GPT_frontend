@@ -155,3 +155,12 @@ input::-webkit-input-placeholder {
   width: 90%;
   font-size: 13px;
 }
+
+.login__register__box {
+  display: flex;
+  justify-content: center;
+}
+
+.login__register {
+  color: var(--color-main);
+}
