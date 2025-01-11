@@ -22,7 +22,7 @@
     "@angular/router": "^17.0.0",
     "@angular/ssr": "^17.0.9",
     "@ng-select/ng-select": "^12.0.7",
-    "angular-oauth2-oidc": "^15.0.1",
+    "angular-oauth2-oidc": "^17.0.2",
     "express": "^4.18.2",
     "ngx-toastr": "^19.0.0",
     "rxjs": "~7.8.0",

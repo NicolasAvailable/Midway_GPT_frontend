@@ -15,7 +15,7 @@ export class Login {
 
   public values() {
     return {
-      username: this.loginEmail.value,
+      email: this.loginEmail.value,
       password: this.loginPassword.value,
     };
   }

@@ -9,9 +9,7 @@ import { OauthGoogleService } from '../auth/data/services/oauth-google.service';
 export class CoreComponent implements OnInit {
   constructor(private oAuthGoogleService: OauthGoogleService) {}
 
-  ngOnInit() {}
-
-  public async getData() {
-    const data = await this.oAuthGoogleService.getProfile();
+  ngOnInit() {
+    this.oAuthGoogleService.listenEvents();
   }
 }
