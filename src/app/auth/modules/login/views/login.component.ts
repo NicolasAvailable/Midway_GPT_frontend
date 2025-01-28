@@ -4,13 +4,13 @@ import { EMAIL_REGEX } from '../data/constants/email-pattern.constants';
 import { LoginTemplateService } from '../data/services/login-template.service';
 
 @Component({
-  selector: 'login',
+  selector: 'auth-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  public form!: FormGroup;
-  public showPassword: boolean = false;
+  protected form!: FormGroup;
+  protected showPassword: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,

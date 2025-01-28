@@ -15,7 +15,7 @@
           />
         </div>
         <div class="login__password__email input__box">
-          <label class="input__label" for="password"> Password </label>
+          <label class="input__label" for="password"> Contraseña </label>
           <div class="input__password">
             <input
               class="input__style password__input"
@@ -38,18 +38,18 @@
             class="forgot__password__text"
             [routerLink]="['../forgotten']"
           >
-            Forgot password?
+            ¿Olvidaste tu contraseña?
           </button>
         </div>
       </form>
     </div>
     <div class="login__button__box">
-      <button class="login__button" (click)="send()">Log in</button>
+      <button class="login__button" (click)="send()">Iniciar sesión</button>
     </div>
     <div class="login__oauth__box">
       <div class="login__oauth__text">
         <hr class="flex-grow mr-2" />
-        or log in with
+        o inicia sesión con
         <hr class="flex-grow ml-2" />
       </div>
       <div class="login__oauth">
@@ -58,9 +58,9 @@
     </div>
     <div class="login__register__box">
       <p>
-        Don't have an account yet?
+        ¿No tienes una cuenta aún?
         <a class="login__register" [routerLink]="['../register']"
-          >Register now</a
+          >Regístrate aquí</a
         >
       </p>
     </div>

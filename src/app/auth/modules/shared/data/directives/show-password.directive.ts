@@ -2,6 +2,7 @@ import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
   selector: '[onShowPassword]',
+  standalone: true,
 })
 export class ShowPasswordDirective {
   @Input() set showPassword(show: boolean) {

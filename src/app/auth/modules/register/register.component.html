@@ -1,3 +1,69 @@
-<p>
-  register works!
-</p>
+<auth-background>
+  <div class="register__content">
+    <div class="register__img__box">
+      <img src="assets/img/logo-midway.svg" />
+    </div>
+    <div class="register__inputs__box">
+      <form class="register__form__content">
+        <div class="register__input__email input__box">
+          <label class="input__label" for="name"> Nombre </label>
+          <input class="input__style" type="text" id="name" />
+        </div>
+        <div class="register__input__email input__box">
+          <label class="input__label" for="email"> Email </label>
+          <input class="input__style" type="text" id="email" />
+        </div>
+        <div class="register__password__email input__box">
+          <label class="input__label" for="password"> Contraseña </label>
+          <div class="input__password">
+            <input
+              class="input__style password__input"
+              type="password"
+              id="password"
+              onShowPassword
+              [showPassword]="showPassword"
+            />
+            <button
+              class="show__password"
+              (click)="showPassword = !showPassword"
+            >
+              <i class="fa-solid fa-eye show__icon"></i>
+            </button>
+          </div>
+        </div>
+        <div class="register__password__email input__box">
+          <label class="input__label" for="confirm__password">
+            Confirmar contraseña
+          </label>
+          <div class="input__password">
+            <input
+              class="input__style password__input"
+              type="password"
+              id="confirm__password"
+              onShowPassword
+              [showPassword]="showPassword"
+            />
+            <button
+              class="show__password"
+              (click)="showPassword = !showPassword"
+            >
+              <i class="fa-solid fa-eye show__icon"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="register__button__box">
+      <button class="register__button">Regístrarse</button>
+    </div>
+
+    <div class="register__register__box">
+      <p>
+        ¿Ya tienes una cuenta?
+        <a class="register__register" [routerLink]="['../login']"
+          >Inicia sesión aquí</a
+        >
+      </p>
+    </div>
+  </div>
+</auth-background>

@@ -1,0 +1,150 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  background-color: var(--color-main);
+}
+
+input::-webkit-input-placeholder {
+  color: black;
+}
+
+.register__left__content {
+  background-color: var(--color-main);
+}
+
+.register__right__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register__content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.register__img__box {
+  display: flex;
+  justify-content: center;
+}
+
+.register__title {
+  color: black;
+  font-weight: 700;
+  text-align: center;
+}
+
+.input__label {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-black);
+}
+
+.input__box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.register__form__content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input__style {
+  height: 36px;
+  width: 100%;
+  border: 2px solid var(--color-main) !important;
+  border-radius: 5px;
+  background-color: white;
+  padding-left: 0.4vw;
+  padding-right: 0.4vw;
+  padding-top: 0.2vw;
+  padding-bottom: 0.2vw;
+  font-size: 14px;
+}
+
+.input__style:focus {
+  outline: none;
+}
+
+.input__style::placeholder {
+  background-color: white;
+}
+
+.register__button {
+  width: 100%;
+  height: 36px;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  background: linear-gradient(to right, #3c2c9fb2, #c934d2b2);
+}
+
+.register__oauth__box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.register__oauth__text {
+  display: flex;
+  align-items: center;
+  color: var(--color-black);
+}
+
+.register__oauth {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.register__forgot__password__box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.forgot__password__text {
+  color: var(--color-main);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.register__button__box {
+  margin-top: -3px;
+}
+
+.input__password {
+  position: relative;
+}
+
+.password__input {
+  padding-right: 1.8vw !important;
+}
+
+.show__password {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 10%;
+}
+
+.show__icon {
+  background: white;
+  width: 90%;
+  font-size: 13px;
+}
+
+.register__register__box {
+  display: flex;
+  justify-content: center;
+}
+
+.register__register {
+  color: var(--color-main);
+}
