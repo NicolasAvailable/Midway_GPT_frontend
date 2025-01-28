@@ -5,7 +5,7 @@ import { oAuthGoogleConfig } from '../../../config/0auth.config';
 @Injectable({
   providedIn: 'root',
 })
-export class OauthGoogleService {
+export class OauthService {
   constructor(private oauthService: OAuthService) {
     this.iniLogin();
   }
@@ -16,9 +16,7 @@ export class OauthGoogleService {
     this.oauthService.setupAutomaticSilentRefresh();
 
     try {
-      await this.oauthService.loadDiscoveryDocumentAndTryLogin({
-        onTokenReceived: (context) => console.log(context),
-      });
+      await this.oauthService.loadDiscoveryDocumentAndTryLogin();
       console.log('Login exitoso');
     } catch (error) {
       console.error('Error en el login:', error);
@@ -28,30 +26,15 @@ export class OauthGoogleService {
     await this.oauthService.initLoginFlowInPopup({});
   }
 
-  public logout() {
-    this.oauthService.logOut();
-  }
-
-  public getToken() {
-    return this.oauthService.getAccessToken();
-  }
-
-  public getIdToken() {
-    return this.oauthService.getIdToken();
-  }
-
-  public getUser() {
-    return this.oauthService.getIdentityClaims();
-  }
-
   public listenEvents() {
     this.oauthService.events.subscribe((e) => {
       console.log(e);
       if (e.type === 'token_received') {
-        const token = this.getToken();
+        const token = this.oauthService.getAccessToken();
         console.log('token', token);
-        const data = this.getUser();
+        const data = this.oauthService.getIdentityClaims();
         console.log('user', data);
+        console.log('id token', this.oauthService.getIdToken());
       }
     });
   }

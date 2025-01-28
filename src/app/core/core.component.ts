@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OauthGoogleService } from '../auth/data/services/oauth-google.service';
+import { OauthService } from '../auth/data/services/oauth.service';
 
 @Component({
   selector: 'app-core',
@@ -7,9 +7,9 @@ import { OauthGoogleService } from '../auth/data/services/oauth-google.service';
   styleUrls: ['./core.component.css'],
 })
 export class CoreComponent implements OnInit {
-  constructor(private oAuthGoogleService: OauthGoogleService) {}
+  constructor(private OAuthService: OauthService) {}
 
   ngOnInit() {
-    this.oAuthGoogleService.listenEvents();
+    this.OAuthService.listenEvents();
   }
 }
