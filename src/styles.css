@@ -1,4 +1,3 @@
-@import "@ng-select/ng-select/themes/default.theme.css";
 @import "./app/@midway-ui/styles/midway-ui.css";
 @tailwind base;
 @tailwind components;

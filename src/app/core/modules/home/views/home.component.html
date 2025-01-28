@@ -12,42 +12,12 @@
         <label class="font-subtitle font-semibold"
           >Tipo de documento a exportar</label
         >
-        <ng-select
-          bindLabel="name"
-          bindValue="id"
-          [placeholder]="'Seleccione el archivo'"
-          [searchable]="false"
-          [items]="multimedia"
-          [(ngModel)]="selectMultimedia"
-          (change)="multemediaSelected()"
-        >
-        </ng-select>
       </div>
       <div class="content__select__document__box flex-1">
         <label class="font-subtitle font-semibold">Idioma del documento</label>
-        <ng-select
-          bindLabel="name"
-          bindValue="id"
-          [placeholder]="'Seleccione el archivo'"
-          [searchable]="false"
-          [items]="languages"
-          [(ngModel)]="selectLanguage"
-          (change)="multemediaSelected()"
-        >
-        </ng-select>
       </div>
       <div class="content__select__document__box flex-1">
         <label class="font-subtitle font-semibold">Formato del documento</label>
-        <ng-select
-          bindLabel="name"
-          bindValue="id"
-          [placeholder]="'Seleccione el archivo'"
-          [searchable]="false"
-          [items]="format"
-          [(ngModel)]="selectFormat"
-          (change)="multemediaSelected()"
-        >
-        </ng-select>
       </div>
     </div>
     <div class="content__button__box">

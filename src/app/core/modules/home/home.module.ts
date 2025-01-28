@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './views/home.component';
-import { RouterModule, Routes } from '@angular/router';
-import { NgSelectModule } from '@ng-select/ng-select';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './views/home.component';
 
 const routes: Routes = [
   {
@@ -13,12 +12,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    NgSelectModule,
-    FormsModule,
-  ],
+  imports: [CommonModule, RouterModule.forChild(routes), FormsModule],
   declarations: [HomeComponent],
   exports: [HomeComponent],
 })
