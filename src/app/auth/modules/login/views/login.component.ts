@@ -4,7 +4,7 @@ import { EMAIL_REGEX } from '../data/constants/email-pattern.constants';
 import { LoginTemplateService } from '../data/services/login-template.service';
 
 @Component({
-  selector: 'mw-login',
+  selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
@@ -18,10 +18,10 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.setupForm();
+    this.setup();
   }
 
-  private setupForm() {
+  private setup() {
     this.form = this.formBuilder.group({
       email: [
         '',
@@ -35,10 +35,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  public login() {
+  public send() {
     if (this.form.invalid) return;
-    const email = this.form?.get('email')?.value;
-    const password = this.form?.get('password')?.value;
+    const email = this.form.get('email')?.value;
+    const password = this.form.get('password')?.value;
     this.loginTemplateService.login(email, password);
   }
 

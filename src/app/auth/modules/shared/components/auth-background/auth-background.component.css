@@ -1,0 +1,36 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  background-color: var(--color-main);
+}
+
+input::-webkit-input-placeholder {
+  color: black;
+}
+
+.auth__container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.auth__left__content {
+  width: 100%;
+  height: 100%;
+}
+
+.auth__right__content {
+  height: 100%;
+  width: 85%;
+}
+
+.auth__left__content {
+  background-color: var(--color-main);
+}
+
+.auth__right__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

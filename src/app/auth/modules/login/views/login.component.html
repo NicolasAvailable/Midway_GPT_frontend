@@ -1,71 +1,68 @@
-<section class="login__container">
-  <section class="login__left__content"></section>
-  <section class="login__right__content">
-    <div class="login__content">
-      <div class="login__img__box">
-        <img src="assets/img/logo-midway.svg" />
-      </div>
-      <div class="login__inputs__box">
-        <form class="login__form__content" [formGroup]="form">
-          <div class="login__input__email input__box">
-            <label class="input__label" for="email"> Email </label>
+<auth-background>
+  <div class="login__content">
+    <div class="login__img__box">
+      <img src="assets/img/logo-midway.svg" />
+    </div>
+    <div class="login__inputs__box">
+      <form class="login__form__content" [formGroup]="form">
+        <div class="login__input__email input__box">
+          <label class="input__label" for="email"> Email </label>
+          <input
+            class="input__style"
+            type="text"
+            id="email"
+            formControlName="email"
+          />
+        </div>
+        <div class="login__password__email input__box">
+          <label class="input__label" for="password"> Password </label>
+          <div class="input__password">
             <input
-              class="input__style"
-              type="text"
-              id="email"
-              formControlName="email"
+              class="input__style password__input"
+              type="password"
+              id="password"
+              formControlName="password"
+              onShowPassword
+              [showPassword]="showPassword"
             />
-          </div>
-          <div class="login__password__email input__box">
-            <label class="input__label" for="password"> Password </label>
-            <div class="input__password">
-              <input
-                class="input__style password__input"
-                type="password"
-                id="password"
-                formControlName="password"
-                onShowPassword
-                [showPassword]="showPassword"
-              />
-              <button
-                class="show__password"
-                (click)="showPassword = !showPassword"
-              >
-                <i class="fa-solid fa-eye show__icon"></i>
-              </button>
-            </div>
-          </div>
-          <div class="login__forgot__password__box">
             <button
-              class="forgot__password__text"
-              [routerLink]="['../forgotten']"
+              class="show__password"
+              (click)="showPassword = !showPassword"
             >
-              Forgot password?
+              <i class="fa-solid fa-eye show__icon"></i>
             </button>
           </div>
-        </form>
-      </div>
-      <div class="login__button__box">
-        <button class="login__button" (click)="login()">Log in</button>
-      </div>
-      <div class="login__oauth__box">
-        <div class="login__oauth__text">
-          <hr class="flex-grow mr-2" />
-          or log in with
-          <hr class="flex-grow ml-2" />
         </div>
-        <div class="login__oauth">
-          <mw-oauth-google></mw-oauth-google>
-        </div>
-      </div>
-      <div class="login__register__box">
-        <p>
-          Don't have an account yet?
-          <a class="login__register" [routerLink]="['../register']"
-            >Register now</a
+        <div class="login__forgot__password__box">
+          <button
+            class="forgot__password__text"
+            [routerLink]="['../forgotten']"
           >
-        </p>
+            Forgot password?
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="login__button__box">
+      <button class="login__button" (click)="send()">Log in</button>
+    </div>
+    <div class="login__oauth__box">
+      <div class="login__oauth__text">
+        <hr class="flex-grow mr-2" />
+        or log in with
+        <hr class="flex-grow ml-2" />
+      </div>
+      <div class="login__oauth">
+        <mw-oauth-google></mw-oauth-google>
       </div>
     </div>
-  </section>
-</section>
+    <div class="login__register__box">
+      <p>
+        Don't have an account yet?
+        <a class="login__register" [routerLink]="['../register']"
+          >Register now</a
+        >
+      </p>
+    </div>
+  </div>
+</auth-background>
