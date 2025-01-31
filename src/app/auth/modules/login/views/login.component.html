@@ -72,7 +72,11 @@
       </form>
     </div>
     <div class="login__button__box">
-      <button class="login__button" (click)="send()">Iniciar sesión</button>
+      <mw-button
+        text="Iniciar sesión"
+        [isDisabled]="form.invalid"
+        (click)="send()"
+      ></mw-button>
     </div>
     <div class="login__oauth__box">
       <div class="login__oauth__text">

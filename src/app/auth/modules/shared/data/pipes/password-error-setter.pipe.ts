@@ -13,6 +13,7 @@ export class passwordErrorSetterPipe implements PipeTransform {
       'minlength',
       'La contraseña debe tener al menos 6 caracteres'
     );
+    this.errors.set('whitespace', 'No se permiten espacios en blanco');
   }
 
   transform(errors: Record<string, any> | null): any {

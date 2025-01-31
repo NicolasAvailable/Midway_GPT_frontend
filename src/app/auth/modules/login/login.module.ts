@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { ButtonComponent } from '../../../@midway-UI/global/button/button/button.component';
 import { InputInvalidDirective } from '../../../@midway-UI/global/input/input-invalid.directive';
 import { SgInputContainerDirective } from '../../../@midway-UI/global/input/sg-input-container.directive';
 import { SgInputErrorDirective } from '../../../@midway-UI/global/input/sg-input-error.directive';
@@ -22,6 +23,7 @@ const router: Routes = [{ path: '', component: LoginComponent }];
     ReactiveFormsModule,
     MwAlertModule,
     AuthBackgroundComponent,
+    ButtonComponent,
     ShowPasswordDirective,
     SgInputContainerDirective,
     SgInputErrorDirective,

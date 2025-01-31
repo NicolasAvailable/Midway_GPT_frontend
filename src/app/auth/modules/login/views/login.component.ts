@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { noWhitespaceValidator } from '../../shared/data/validators/white-space.validators';
 import { EMAIL_REGEX } from '../data/constants/email-pattern.constants';
 import { LoginTemplateService } from '../data/services/login-template.service';
 
@@ -29,17 +30,24 @@ export class LoginComponent implements OnInit {
           Validators.required,
           Validators.pattern(EMAIL_REGEX),
           Validators.minLength(4),
+          noWhitespaceValidator(),
         ],
       ],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: [
+        '',
+        [Validators.required, Validators.minLength(6), noWhitespaceValidator()],
+      ],
     });
   }
 
   public send() {
     if (this.form.invalid) return;
-    const email = this.form.get('email')?.value;
-    const password = this.form.get('password')?.value;
-    this.loginTemplateService.login(email, password);
+    const email: string = this.form.get('email')?.value;
+    const password: string = this.form.get('password')?.value;
+    this.loginTemplateService.login(
+      email.toLowerCase().trim(),
+      password.toLowerCase().trim()
+    );
   }
 
   public goToForgotPassword() {}
