@@ -6,7 +6,6 @@ import { ButtonComponent } from '../../../@midway-UI/global/button/button/button
 import { InputInvalidDirective } from '../../../@midway-UI/global/input/input-invalid.directive';
 import { SgInputContainerDirective } from '../../../@midway-UI/global/input/sg-input-container.directive';
 import { SgInputErrorDirective } from '../../../@midway-UI/global/input/sg-input-error.directive';
-import { MwAlertModule } from '../../../shared/components/alerts/mw-alert.module';
 import { AuthBackgroundComponent } from '../shared/components/auth-background/auth-background.component';
 import { ShowPasswordDirective } from '../shared/data/directives/show-password.directive';
 import { EmailErrorSetterPipe } from '../shared/data/pipes/email-error-setter.pipe';
@@ -21,7 +20,6 @@ const router: Routes = [{ path: '', component: LoginComponent }];
     CommonModule,
     RouterModule.forChild(router),
     ReactiveFormsModule,
-    MwAlertModule,
     AuthBackgroundComponent,
     ButtonComponent,
     ShowPasswordDirective,

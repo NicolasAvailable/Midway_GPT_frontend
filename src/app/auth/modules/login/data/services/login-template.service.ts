@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '../../../../data/services/auth.service';
-import { LoginErrorService } from './errors/login-error.service';
 import { LoginRunner } from '../models/login-runner.models';
-import { ToasterService } from '../../../../../shared/services/toaster/toaster.service';
+import { LoginErrorService } from './errors/login-error.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,8 +9,7 @@ import { ToasterService } from '../../../../../shared/services/toaster/toaster.s
 export class LoginTemplateService {
   constructor(
     private authService: AuthService,
-    private loginErrorService: LoginErrorService,
-    private toasterService: ToasterService
+    private loginErrorService: LoginErrorService
   ) {}
 
   public login(email: string, password: string) {
@@ -19,7 +17,7 @@ export class LoginTemplateService {
       .run()
       .subscribe(async (login) => {
         if (!login) return;
-        this.toasterService.warning('Loading...');
+        // this.toasterService.warning('Loading...');
         await this.authService.login(login.values());
       });
   }
