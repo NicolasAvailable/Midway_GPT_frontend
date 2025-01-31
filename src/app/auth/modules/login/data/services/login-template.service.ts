@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { toast } from 'ngx-sonner';
 import { AuthService } from '../../../../data/services/auth.service';
 import { LoginRunner } from '../models/login-runner.models';
 import { LoginErrorService } from './errors/login-error.service';
@@ -17,7 +18,7 @@ export class LoginTemplateService {
       .run()
       .subscribe(async (login) => {
         if (!login) return;
-        // this.toasterService.warning('Loading...');
+        toast.loading('Cargando...');
         await this.authService.login(login.values());
       });
   }

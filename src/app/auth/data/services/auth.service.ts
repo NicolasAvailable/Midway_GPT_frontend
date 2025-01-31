@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { toast } from 'ngx-sonner';
 import { map } from 'rxjs';
 import { AppService } from '../../../app.service';
 import { LoginRequest } from '../../modules/login/data/models/login-request.models';
@@ -46,8 +47,8 @@ export class AuthService extends AppService {
   private success(value: LoginData) {
     localStorage.setItem('access_token', value.access_token);
     localStorage.setItem('token_type', value.token_type);
-    // this.toasterService.hideAll();
-    // this.toasterService.success('Success!');
+    toast.dismiss();
+    toast.success('Se ha iniciado sesión correctamente');
     this.router.navigate(['app']);
   }
 }

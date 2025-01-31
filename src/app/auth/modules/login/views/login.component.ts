@@ -44,10 +44,7 @@ export class LoginComponent implements OnInit {
     if (this.form.invalid) return;
     const email: string = this.form.get('email')?.value;
     const password: string = this.form.get('password')?.value;
-    this.loginTemplateService.login(
-      email.toLowerCase().trim(),
-      password.toLowerCase().trim()
-    );
+    this.loginTemplateService.login(email.toLowerCase().trim(), password);
   }
 
   public goToForgotPassword() {}
