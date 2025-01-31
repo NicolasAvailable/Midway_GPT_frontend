@@ -28,10 +28,10 @@ export class LoginComponent implements OnInit {
         [
           Validators.required,
           Validators.pattern(EMAIL_REGEX),
-          Validators.minLength(2),
+          Validators.minLength(4),
         ],
       ],
-      password: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 

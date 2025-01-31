@@ -58,7 +58,7 @@ input::-webkit-input-placeholder {
 .input__style {
   height: 36px;
   width: 100%;
-  border: 2px solid var(--color-main) !important;
+  border: 2px solid var(--color-main);
   border-radius: 5px;
   background-color: white;
   padding-left: 0.4vw;

@@ -39,7 +39,6 @@ input::-webkit-input-placeholder {
 
 .input__label {
   font-weight: 500;
-  font-size: 14px;
   color: var(--color-black);
 }
 
@@ -55,10 +54,15 @@ input::-webkit-input-placeholder {
   gap: 5px;
 }
 
+.login__input__box {
+  display: flex;
+  justify-content: space-between;
+}
+
 .input__style {
   height: 36px;
   width: 100%;
-  border: 2px solid var(--color-main) !important;
+  border: 2px solid var(--color-main);
   border-radius: 5px;
   background-color: white;
   padding-left: 0.4vw;
@@ -134,10 +138,9 @@ input::-webkit-input-placeholder {
   width: 10%;
 }
 
-.show__icon {
+.auth__icon {
   background: white;
   width: 90%;
-  font-size: 13px;
 }
 
 .login__register__box {
