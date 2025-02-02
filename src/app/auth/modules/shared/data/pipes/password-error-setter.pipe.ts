@@ -17,7 +17,6 @@ export class PasswordErrorSetterPipe implements PipeTransform {
   }
 
   public transform(errors: Record<string, any> | null): any {
-    console.log(errors);
     if (errors !== null) {
       const keys = Object.keys(errors);
       return this.errors.get(keys[0]);

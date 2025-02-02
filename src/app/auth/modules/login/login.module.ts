@@ -11,7 +11,7 @@ import { ShowPasswordDirective } from '../shared/data/directives/show-password.d
 import { EmailErrorSetterPipe } from '../shared/data/pipes/email-error-setter.pipe';
 import { PasswordErrorSetterPipe } from '../shared/data/pipes/password-error-setter.pipe';
 import { OauthGoogleComponent } from './components/oauth-google/oauth-google.component';
-import { LoginComponent } from './views/login.component';
+import { LoginComponent } from './login.component';
 
 const router: Routes = [{ path: '', component: LoginComponent }];
 

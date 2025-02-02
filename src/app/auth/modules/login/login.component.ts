@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { noWhitespaceValidator } from '../../shared/data/validators/white-space.validators';
-import { EMAIL_REGEX } from '../data/constants/email-pattern.constants';
-import { LoginTemplateService } from '../data/services/login-template.service';
+import { noWhitespaceValidator } from '../shared/data/validators/white-space.validators';
+import { EMAIL_REGEX } from './data/constants/email-pattern.constants';
+import { LoginTemplateService } from './data/services/login-template.service';
 
 @Component({
   selector: 'auth-login',
