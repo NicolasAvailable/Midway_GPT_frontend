@@ -4,24 +4,74 @@
       <img src="assets/img/logo-midway.svg" />
     </div>
     <div class="register__inputs__box">
-      <form class="register__form__content">
+      <form class="register__form__content" [formGroup]="form">
         <div class="register__input__email input__box">
-          <label class="input__label" for="name"> Nombre </label>
-          <input class="input__style" type="text" id="name" />
+          <div class="register__input__box">
+            <label class="input__label text-sm" for="name"> Nombre </label>
+            <!-- TODO: set nameErrorSetter -->
+            <span
+              class="input__required"
+              mwInputError
+              [ensureTouched]="false"
+              [error]="form.get('name')"
+            ></span>
+          </div>
+          <input
+            id="name"
+            class="input__style"
+            type="text"
+            formControlName="name"
+            mwInputInvalid
+            [error]="form.get('name')"
+          />
         </div>
+
         <div class="register__input__email input__box">
-          <label class="input__label" for="email"> Email </label>
-          <input class="input__style" type="text" id="email" />
+          <div class="register__input__box">
+            <label class="input__label text-sm" for="email"> Email </label>
+            <span
+              class="input__required"
+              mwInputError
+              [ensureTouched]="false"
+              [error]="form.get('email')"
+            >
+              {{ form.get("email").errors | emailErrorSetter }}
+            </span>
+          </div>
+          <input
+            id="email"
+            class="input__style"
+            type="text"
+            formControlName="email"
+            mwInputInvalid
+            [error]="form.get('email')"
+          />
         </div>
+
         <div class="register__password__email input__box">
-          <label class="input__label" for="password"> Contraseña </label>
+          <div class="register__input__box">
+            <label class="input__label text-sm" for="password">
+              Contraseña
+            </label>
+            <span
+              class="input__required"
+              mwInputError
+              [ensureTouched]="false"
+              [error]="form.get('password')"
+            >
+              {{ form.get("password").errors | passwordErrorSetter }}
+            </span>
+          </div>
           <div class="input__password">
             <input
               class="input__style password__input"
               type="password"
               id="password"
               onShowPassword
+              mwInputInvalid
+              formControlName="password"
               [showPassword]="showPassword"
+              [error]="form.get('password')"
             />
             <button
               class="show__password"
@@ -31,21 +81,44 @@
             </button>
           </div>
         </div>
+
         <div class="register__password__email input__box">
-          <label class="input__label" for="confirm__password">
-            Confirmar contraseña
-          </label>
+          <div class="register__input__box">
+            <label class="input__label text-sm" for="confirm__password">
+              Confirmar contraseña
+            </label>
+            <span
+              class="input__required"
+              mwInputError
+              [ensureTouched]="false"
+              [error]="
+                form.get('confirmPassword').errors
+                  ? form.get('confirmPassword')
+                  : form
+              "
+            >
+              {{
+                (form.get("confirmPassword").errors
+                  ? form.get("confirmPassword").errors
+                  : form.errors
+                ) | confirmPasswordErrorSetter
+              }}
+            </span>
+          </div>
           <div class="input__password">
             <input
               class="input__style password__input"
               type="password"
               id="confirm__password"
               onShowPassword
-              [showPassword]="showPassword"
+              mwInputInvalid
+              formControlName="confirmPassword"
+              [showPassword]="showConfirmPassword"
+              [error]="form.get('confirmPassword')"
             />
             <button
               class="show__password"
-              (click)="showPassword = !showPassword"
+              (click)="showConfirmPassword = !showConfirmPassword"
             >
               <i class="fa-solid fa-eye show__icon"></i>
             </button>
@@ -54,9 +127,8 @@
       </form>
     </div>
     <div class="register__button__box">
-      <mw-button text="Regístrarse"></mw-button>
+      <mw-button text="Regístrarse" [isDisabled]="form.invalid"></mw-button>
     </div>
-
     <div class="register__register__box">
       <p>
         ¿Ya tienes una cuenta?

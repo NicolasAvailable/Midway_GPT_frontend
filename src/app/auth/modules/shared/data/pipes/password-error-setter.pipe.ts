@@ -4,8 +4,8 @@ import { Pipe, type PipeTransform } from '@angular/core';
   name: 'passwordErrorSetter',
   standalone: true,
 })
-export class passwordErrorSetterPipe implements PipeTransform {
-  private errors: Map<string, string> = new Map();
+export class PasswordErrorSetterPipe implements PipeTransform {
+  protected errors: Map<string, string> = new Map();
 
   constructor() {
     this.errors.set('required', 'La contraseña es requerida');
@@ -16,7 +16,8 @@ export class passwordErrorSetterPipe implements PipeTransform {
     this.errors.set('whitespace', 'No se permiten espacios en blanco');
   }
 
-  transform(errors: Record<string, any> | null): any {
+  public transform(errors: Record<string, any> | null): any {
+    console.log(errors);
     if (errors !== null) {
       const keys = Object.keys(errors);
       return this.errors.get(keys[0]);

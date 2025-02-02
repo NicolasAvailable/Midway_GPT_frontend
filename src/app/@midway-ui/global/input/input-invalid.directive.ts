@@ -2,12 +2,12 @@ import { Directive, ElementRef, Input } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 
 @Directive({
-  selector: '[inputInvalid]',
+  selector: '[mwInputInvalid]',
   standalone: true,
 })
-export class InputInvalidDirective {
+export class MwInputInvalidDirective {
   @Input() set error(control: UntypedFormControl) {
-    control!.statusChanges.subscribe(() => {
+    control?.statusChanges?.subscribe(() => {
       const className = 'mw__input__error';
       if (control.invalid) {
         this.elementRef.nativeElement.classList.add(className);

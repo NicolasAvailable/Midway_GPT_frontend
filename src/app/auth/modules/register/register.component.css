@@ -139,3 +139,13 @@ input::-webkit-input-placeholder {
 .register__register {
   color: var(--color-main);
 }
+
+.register__input__box {
+  display: flex;
+  justify-content: space-between;
+  /* display: -webkit-inline-box;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1; */
+  overflow: hidden;
+}

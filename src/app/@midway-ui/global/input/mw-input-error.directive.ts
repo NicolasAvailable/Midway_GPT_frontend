@@ -1,21 +1,22 @@
 import { Directive, ElementRef, Input } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Directive({
-  selector: '[sgInputError]',
+  selector: '[mwInputError]',
   standalone: true,
 })
-export class SgInputErrorDirective {
-  @Input() key: string | null = null;
+export class MwInputErrorDirective {
   @Input() ensureTouched = true;
-  @Input() set error(control: UntypedFormControl) {
-    control!.statusChanges.subscribe(() => {
+  private lastSubcription: Subscription;
+
+  @Input() set error(control: UntypedFormControl | UntypedFormGroup) {
+    if (this.lastSubcription) {
+      this.lastSubcription.unsubscribe();
+    }
+    this.lastSubcription = control?.statusChanges?.subscribe(() => {
       const className = 'mw__input__span__error--active';
-      if (
-        control!.invalid &&
-        this.isInvalidKey(control!) &&
-        (this.ensureTouched ? control!.touched : true)
-      ) {
+      if (control!.invalid && (this.ensureTouched ? control!.touched : true)) {
         this.elementRef.nativeElement.classList.add(className);
       } else {
         this.elementRef.nativeElement.classList.remove(className);
@@ -28,8 +29,5 @@ export class SgInputErrorDirective {
     this.elementRef.nativeElement.classList.add('text-sm');
   }
 
-  private isInvalidKey(control: UntypedFormControl) {
-    if (!this.key) return true;
-    return control.hasError(this.key);
-  }
+  p;
 }

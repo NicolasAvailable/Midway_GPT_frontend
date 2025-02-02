@@ -10,18 +10,18 @@
             <label class="input__label text-sm" for="email"> Email </label>
             <span
               class="input__required"
-              sgInputError
+              mwInputError
               [ensureTouched]="false"
               [error]="form.get('email')"
               >{{ form.get("email").errors | emailErrorSetter }}</span
             >
           </div>
           <input
+            id="email"
             class="input__style"
             type="text"
-            id="email"
             formControlName="email"
-            inputInvalid
+            mwInputInvalid
             [error]="form.get('email')"
           />
         </div>
@@ -32,7 +32,7 @@
             </label>
             <span
               class="input__required"
-              sgInputError
+              mwInputError
               [ensureTouched]="false"
               [error]="form.get('password')"
               >{{ form.get("password").errors | passwordErrorSetter }}</span
@@ -40,11 +40,11 @@
           </div>
           <div class="input__password">
             <input
+              id="password"
               class="input__style password__input"
               type="password"
-              id="password"
               formControlName="password"
-              inputInvalid
+              mwInputInvalid
               onShowPassword
               [showPassword]="showPassword"
               [error]="form.get('password')"

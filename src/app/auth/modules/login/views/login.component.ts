@@ -33,10 +33,7 @@ export class LoginComponent implements OnInit {
           noWhitespaceValidator(),
         ],
       ],
-      password: [
-        '',
-        [Validators.required, Validators.minLength(6), noWhitespaceValidator()],
-      ],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
