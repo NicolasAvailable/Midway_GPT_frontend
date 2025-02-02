@@ -4,7 +4,7 @@
       <img src="assets/img/logo-midway.svg" />
     </div>
     <div class="login__inputs__box">
-      <form class="login__form__content" [formGroup]="form">
+      <form class="login__form__content" [formGroup]="form" (ngSubmit)="send()">
         <div class="login__input__email input__box">
           <div class="login__input__box">
             <label class="input__label text-sm" for="email"> Email </label>
