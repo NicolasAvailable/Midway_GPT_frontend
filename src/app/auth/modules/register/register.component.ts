@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EMAIL_REGEX } from '../login/data/constants/email-pattern.constants';
 import { isSamePasswordValidator } from '../shared/data/validators/is-same-password.validators';
 import { noWhitespaceValidator } from '../shared/data/validators/white-space.validators';
+import { RegisterBody } from './data/models/register-body.models';
 
 @Component({
   selector: 'auth-register',
@@ -38,5 +39,10 @@ export class RegisterComponent implements OnInit {
       },
       { validators: isSamePasswordValidator }
     );
+  }
+
+  public send() {
+    if (this.form.invalid) return;
+    const body = new RegisterBody(this.form).adapt();
   }
 }

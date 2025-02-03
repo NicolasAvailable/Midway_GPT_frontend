@@ -10,6 +10,7 @@ import { AuthBackgroundComponent } from '../shared/components/auth-background/au
 import { ShowPasswordDirective } from '../shared/data/directives/show-password.directive';
 import { ConfirmPasswordErrorSetterPipe } from '../shared/data/pipes/confirm-password-error-setter.pipe';
 import { EmailErrorSetterPipe } from '../shared/data/pipes/email-error-setter.pipe';
+import { NameErrorSetterPipe } from '../shared/data/pipes/name-error-setter.pipe';
 import { PasswordErrorSetterPipe } from '../shared/data/pipes/password-error-setter.pipe';
 import { RegisterComponent } from './register.component';
 
@@ -29,6 +30,7 @@ const router: Routes = [{ path: '', component: RegisterComponent }];
     EmailErrorSetterPipe,
     PasswordErrorSetterPipe,
     ConfirmPasswordErrorSetterPipe,
+    NameErrorSetterPipe,
   ],
   declarations: [RegisterComponent],
 })

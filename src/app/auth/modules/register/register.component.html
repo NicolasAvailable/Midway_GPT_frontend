@@ -8,13 +8,15 @@
         <div class="register__input__email input__box">
           <div class="register__input__box">
             <label class="input__label text-sm" for="name"> Nombre </label>
-            <!-- TODO: set nameErrorSetter -->
+
             <span
               class="input__required"
               mwInputError
               [ensureTouched]="false"
               [error]="form.get('name')"
-            ></span>
+            >
+              {{ form.get("name").errors | nameErrorSetter }}
+            </span>
           </div>
           <input
             id="name"
