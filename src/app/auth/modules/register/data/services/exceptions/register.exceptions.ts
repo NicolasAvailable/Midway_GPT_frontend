@@ -7,7 +7,7 @@ import { toast } from 'ngx-sonner';
 export class RegisterExceptions {
   private errors = new Map<number, string>([]);
   constructor() {
-    this.errors.set(409, 'El email ya existe');
+    this.errors.set(409, 'La cuenta ya existe');
   }
 
   public throw(code: number) {

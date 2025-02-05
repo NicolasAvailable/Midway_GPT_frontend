@@ -4,7 +4,7 @@ import { ErrorMiwday } from '../../../../../../shared/models/error-midway.models
 @Injectable({
   providedIn: 'root',
 })
-export class LoginErrorService extends ErrorMiwday {
+export class LoginExceptions extends ErrorMiwday {
   private errors = new Map<number, string>();
   constructor() {
     super();

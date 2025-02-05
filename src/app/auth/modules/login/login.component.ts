@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../data/services/auth.service';
 import { noWhitespaceValidator } from '../shared/data/validators/white-space.validators';
 import { EMAIL_REGEX } from './data/constants/email-pattern.constants';
-import { LoginTemplateService } from './data/services/login-template.service';
+import { LoginBodyAdapter } from './data/models/login-body-adapter.models';
 
 @Component({
   selector: 'auth-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private loginTemplateService: LoginTemplateService
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -39,10 +40,7 @@ export class LoginComponent implements OnInit {
 
   public send() {
     if (this.form.invalid) return;
-    const email: string = this.form.get('email')?.value;
-    const password: string = this.form.get('password')?.value;
-    this.loginTemplateService.login(email.toLowerCase().trim(), password);
+    const body = new LoginBodyAdapter(this.form).adapt();
+    this.authService.login(body);
   }
-
-  public goToForgotPassword() {}
 }

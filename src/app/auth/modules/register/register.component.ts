@@ -4,7 +4,7 @@ import { AuthService } from '../../data/services/auth.service';
 import { EMAIL_REGEX } from '../login/data/constants/email-pattern.constants';
 import { isSamePasswordValidator } from '../shared/data/validators/is-same-password.validators';
 import { noWhitespaceValidator } from '../shared/data/validators/white-space.validators';
-import { RegisterBodyAdapter } from './data/models/register-body.models';
+import { RegisterBodyAdapter } from './data/models/register-body-adapter.models';
 
 @Component({
   selector: 'auth-register',
