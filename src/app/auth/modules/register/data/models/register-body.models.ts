@@ -2,7 +2,7 @@ import { FormGroup } from '@angular/forms';
 import { Adapter } from '../../../../../shared/models/adapter.models';
 import { RegisterBody as IRegisterBody } from '../interface/register-body.interface';
 
-export class RegisterBody extends Adapter<IRegisterBody> {
+export class RegisterBodyAdapter extends Adapter<IRegisterBody> {
   constructor(private formGroup: FormGroup) {
     super();
   }

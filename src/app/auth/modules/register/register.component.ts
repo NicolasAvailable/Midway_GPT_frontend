@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../data/services/auth.service';
 import { EMAIL_REGEX } from '../login/data/constants/email-pattern.constants';
 import { isSamePasswordValidator } from '../shared/data/validators/is-same-password.validators';
 import { noWhitespaceValidator } from '../shared/data/validators/white-space.validators';
-import { RegisterBody } from './data/models/register-body.models';
+import { RegisterBodyAdapter } from './data/models/register-body.models';
 
 @Component({
   selector: 'auth-register',
@@ -15,7 +16,10 @@ export class RegisterComponent implements OnInit {
   protected showPassword: boolean = false;
   protected showConfirmPassword: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.setup();
@@ -43,6 +47,7 @@ export class RegisterComponent implements OnInit {
 
   public send() {
     if (this.form.invalid) return;
-    const body = new RegisterBody(this.form).adapt();
+    const body = new RegisterBodyAdapter(this.form).adapt();
+    this.authService.register(body);
   }
 }

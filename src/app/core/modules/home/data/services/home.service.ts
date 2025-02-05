@@ -1,18 +1,16 @@
-import { Injectable } from '@angular/core';
-import { AppService } from '../../../../../app.service';
 import { HttpClient } from '@angular/common/http';
-import { DocumentBody } from '../models/document-body.models';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { API } from '../../../../../config/api.config';
+import { DocumentBody } from '../models/document-body.models';
 
 @Injectable({
   providedIn: 'root',
 })
-export class HomeService extends AppService {
-  private url = `${this.getURL()}/document`;
+export class HomeService {
+  private url = `${API.url_develop}/document`;
 
-  constructor(http: HttpClient) {
-    super(http);
-  }
+  constructor(private http: HttpClient) {}
 
   public generateDocument(body: DocumentBody): Observable<any> {
     const url = `${this.url}/generator`;

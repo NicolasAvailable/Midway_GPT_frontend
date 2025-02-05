@@ -8,7 +8,6 @@
         <div class="register__input__email input__box">
           <div class="register__input__box">
             <label class="input__label text-sm" for="name"> Nombre </label>
-
             <span
               class="input__required"
               mwInputError
@@ -129,7 +128,11 @@
       </form>
     </div>
     <div class="register__button__box">
-      <mw-button text="Regístrarse" [isDisabled]="form.invalid"></mw-button>
+      <mw-button
+        text="Regístrarse"
+        [isDisabled]="form.invalid"
+        (click)="send()"
+      ></mw-button>
     </div>
     <div class="register__register__box">
       <p>

@@ -3,37 +3,40 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { toast } from 'ngx-sonner';
 import { map } from 'rxjs';
-import { AppService } from '../../../app.service';
+import { API } from '../../../config/api.config';
 import { LoginRequest } from '../../modules/login/data/models/login-request.models';
 import {
   LoginData,
   LoginResponse,
 } from '../../modules/login/data/models/login-response.models';
 import { LoginErrorService } from '../../modules/login/data/services/errors/login-error.service';
+import { RegisterBody } from '../../modules/register/data/interface/register-body.interface';
+import { RegisterService } from '../../modules/register/data/services/register.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService extends AppService {
-  private url = this.getURL();
+export class AuthService {
+  private URL = API.url_develop;
 
   constructor(
-    http: HttpClient,
+    private http: HttpClient,
     private router: Router,
+    private registerService: RegisterService,
     private loginErrorService: LoginErrorService
-  ) {
-    super(http);
-  }
+  ) {}
 
   public login(body: LoginRequest) {
     return new Promise<void>((resolve, reject) => {
-      const url = `${this.url}/auth/local/login`;
+      const url = `${this.URL}/auth/local/login`;
       this.http
         .post<LoginResponse>(url, body)
         .pipe(map((value) => value.data))
         .subscribe(
           (value: LoginData) => {
-            this.success(value);
+            toast.dismiss();
+            toast.success('Se ha iniciado sesión correctamente');
+            this.success(value.token_type, value.access_token);
             resolve();
           },
           (error: HttpErrorResponse) => {
@@ -44,11 +47,18 @@ export class AuthService extends AppService {
     });
   }
 
-  private success(value: LoginData) {
-    localStorage.setItem('access_token', value.access_token);
-    localStorage.setItem('token_type', value.token_type);
-    toast.dismiss();
-    toast.success('Se ha iniciado sesión correctamente');
+  public register(body: RegisterBody) {
+    toast.loading('Cargando...');
+    this.registerService.execute(body).subscribe(({ data }) => {
+      toast.dismiss();
+      toast.success('Se ha registrado correctamente');
+      this.success(data.token_type, data.access_token);
+    });
+  }
+
+  private success(typeToken: string, accessToken: string) {
+    localStorage.setItem('access_token', accessToken);
+    localStorage.setItem('token_type', typeToken);
     this.router.navigate(['app']);
   }
 }
