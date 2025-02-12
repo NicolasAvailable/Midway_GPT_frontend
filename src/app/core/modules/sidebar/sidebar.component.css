@@ -1,0 +1,40 @@
+.sidebar__container {
+  display: flex;
+  flex-direction: column;
+  padding: 20% 0%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.room__item:hover {
+  background-color: var(--color-hover-light);
+}
+
+.sidebar__rooms-container,
+.sidebar__header {
+  padding: 0px 5%;
+}
+
+.sidebar__rooms-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar__rooms-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar__rooms-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px; /* Bordes redondeados */
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.sidebar__rooms-container::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.sidebar__rooms-container {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}

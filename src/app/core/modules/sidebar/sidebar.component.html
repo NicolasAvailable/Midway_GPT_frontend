@@ -1,0 +1,44 @@
+<aside class="sidebar__container gap-2">
+  <div class="sidebar__header">
+    <div
+      class="room__item flex items-center w-full gap-2 p-2 rounded-lg cursor-pointer"
+    >
+      <i class="fa-solid fa-circle-plus text-gray-700"></i>
+      <span class="sidebar__header-title">Crear nuevo asistente</span>
+    </div>
+  </div>
+
+  <div class="sidebar__rooms-container flex-1 overflow-y-auto">
+    <div class="sidebar__rooms flex flex-col items-center gap-2 w-full">
+      @for (item of rooms; track $index) {
+      <div
+        class="sidebar__room room__item flex items-center w-full gap-2 rounded-lg cursor-pointer"
+      >
+        <i class="fa-solid fa-circle-user text-gray-700 pl-2"></i>
+        <div class="truncate w-full text-base py-2">{{ item }}</div>
+        <div class="p-2 h-full" [matMenuTriggerFor]="menu">
+          <i class="fa-solid fa-ellipsis"></i>
+        </div>
+      </div>
+      }
+    </div>
+    <mat-menu #menu="matMenu" xPosition="after" yPosition="below">
+      <ng-template matMenuContent>
+        <div class="flex flex-col">
+          <div
+            class="flex gap-2 items-center p-2 cursor-pointer text-gray-700 hover:bg-gray-200"
+          >
+            <i class="fa-solid fa-pen-to-square text-sm"></i>
+            <button class="text-sm font-medium font-serif">Editar</button>
+          </div>
+          <div
+            class="flex gap-2 items-center p-2 cursor-pointer text-gray-700 hover:bg-gray-200"
+          >
+            <i class="fa-solid fa-trash text-sm"></i>
+            <button class="text-sm font-medium font-serif">Eliminar</button>
+          </div>
+        </div>
+      </ng-template>
+    </mat-menu>
+  </div>
+</aside>

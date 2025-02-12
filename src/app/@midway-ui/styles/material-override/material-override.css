@@ -1,0 +1,144 @@
+.mat-tab-group .mat-tab-label-content {
+  font-size: var(--font-size-sm) !important;
+  font-weight: 400;
+}
+
+.cdk-overlay-container,
+.cdk-global-overlay-wrapper {
+  z-index: 9999999;
+}
+
+.cdk-overlay-container .cdk-overlay-backdrop:nth-of-type(1) {
+  z-index: 999999 !important;
+}
+
+.cdk-overlay-container .cdk-overlay-backdrop:nth-of-type(2) {
+  z-index: 9999999 !important;
+}
+
+.cdk-overlay-container .cdk-overlay-backdrop:nth-of-type(3) {
+  z-index: 9999999 !important;
+}
+
+.cdk-overlay-container .cdk-overlay-backdrop:nth-of-type(4) {
+  z-index: 99999999 !important;
+}
+
+.cdk-overlay-container .cdk-overlay-backdrop:nth-of-type(5) {
+  z-index: 999999999 !important;
+}
+
+.cdk-overlay-container .cdk-overlay-backdrop:nth-of-type(6) {
+  z-index: 9999999999 !important;
+}
+
+.cdk-overlay-container .cdk-overlay-connected-position-bounding-box {
+  z-index: 9999999 !important;
+}
+
+.cdk-overlay-container
+  .cdk-overlay-connected-position-bounding-box
+  .cdk-overlay-pane
+  .mat-mdc-menu-panel {
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.14), 0px 2px 7px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-overlay-container
+  .cdk-overlay-connected-position-bounding-box
+  .cdk-overlay-pane
+  .mat-mdc-menu-panel
+  .mat-mdc-menu-content {
+  padding: 0px !important;
+}
+
+.cdk-overlay-container
+  .cdk-overlay-connected-position-bounding-box
+  .cdk-overlay-pane
+  .mat-mdc-menu-panel
+  .mat-mdc-menu-content
+  div
+  .mat-mdc-menu-item {
+  font-size: auto !important;
+}
+
+.sg__dialog__container .mat-dialog-container {
+  padding: 0;
+  border-radius: 1rem;
+}
+
+.base__dialog .mat-dialog-container {
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.mat-dialog-container:not(:has(.sg__dialog)) {
+  padding: 0.7rem !important;
+}
+
+.mat-checkbox-frame,
+.mat-checkbox-background {
+  border-color: var(--color-stroke);
+  border-radius: 3px !important;
+}
+
+.mat-checkbox-layout {
+  margin-bottom: 0 !important;
+}
+
+.mat-tab-label {
+  height: auto !important;
+}
+
+.mat-datepicker-popup .mat-icon-button,
+.ngx-mat-timepicker-table .mat-icon-button,
+.mat-datepicker-popup .mat-button-wrapper {
+  color: var(--color-primary) !important;
+}
+
+.mat-datepicker-popup .mat-button {
+  padding: 0 !important;
+}
+
+.mat-calendar-arrow {
+  border-top-color: var(--color-primary) !important;
+}
+
+.mat-calendar-body-selected {
+  background-color: var(--color-primary) !important;
+}
+
+.ngx-mat-timepicker .mat-form-field-infix,
+.ngx-mat-timepicker .mat-form-field,
+.ngx-mat-timepicker .ngx-mat-timepicker-meridian .mat-button,
+.ngx-mat-timepicker tr td .mat-icon-button {
+  height: 0 !important;
+  border-top: none !important;
+}
+
+.ngx-mat-timepicker .ngx-mat-timepicker-meridian .mat-button {
+  width: 0 !important;
+}
+
+.mat-overlay-transparent-backdrop {
+  z-index: 9999999 !important;
+}
+
+.mat-checkbox-layout {
+  margin: 0 !important;
+}
+
+.mat-checkbox-inner-container {
+  margin-right: 4px !important;
+}
+
+@media screen and (min-width: 1900px) {
+  .mat-dialog-container:not(:has(.sg__dialog)) {
+    padding: 1.5rem !important;
+  }
+
+  .mat-checkbox:not([size="small"]) .mat-checkbox-inner-container {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}

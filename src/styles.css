@@ -12,25 +12,18 @@
   --color-warn: #e31629;
   --color-black: #3f3e45;
   --color-stroke: #d7d7d7;
+  --color-gray-light: #f9f9f9;
+  --color-hover-light: #e3e3e3;
+  --sidebar-primary-light: var(--color-gray-light);
 }
 
 body {
   background-color: white;
   color: black;
+  font-family: sans-serif;
 }
 
-.font-subtitle {
-  font-size: 15px;
-}
-
-app-core {
-  display: flex;
+mw-home {
+  height: 100%;
   width: 100%;
-  justify-content: center;
-}
-
-.toast__top__right {
-  position: fixed;
-  top: 2%;
-  right: 2%;
 }

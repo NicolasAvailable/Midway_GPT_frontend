@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoreComponent } from './core.component';
 
@@ -10,13 +10,19 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'c',
         pathMatch: 'full',
       },
       {
-        path: 'home',
+        path: 'c',
         loadChildren: () =>
-          import('./modules/home/home.module').then((m) => m.HomeModule),
+          import('./modules/conversation/conversation.module').then(
+            (m) => m.ConversationModule
+          ),
+      },
+      {
+        path: '**',
+        redirectTo: 'c',
       },
     ],
   },

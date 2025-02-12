@@ -21,7 +21,7 @@ export class LoggerService {
     const url = `${this.URL}/auth/local/login`;
     return this.http.post<LoginResponse>(url, body).pipe(
       catchError((error) => {
-        this.loginExceptions.showError(error.status);
+        this.loginExceptions.throw(error.status);
         return of(null);
       })
     );
