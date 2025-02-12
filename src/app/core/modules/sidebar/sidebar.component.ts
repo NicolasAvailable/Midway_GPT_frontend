@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MaterialModule } from '../../../shared/modules/material.module';
+import { RoomList } from './data/models/room-list.models';
+import { SidebarService } from './data/services/sidebar.service';
 
 @Component({
   selector: 'mw-sidebar',
@@ -9,7 +11,14 @@ import { MaterialModule } from '../../../shared/modules/material.module';
   styleUrl: './sidebar.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
+  protected roomList: RoomList | null = null;
+  constructor(protected sidebarService: SidebarService) {}
+  ngOnInit(): void {
+    this.sidebarService
+      .get()
+      .subscribe((roomList) => (this.roomList = roomList));
+  }
   protected rooms: string[] = [
     'room1 wdadasdasdasdasdasdasdasd',
     'room2adasdsadadasdasdasdadasd sadasdasd',

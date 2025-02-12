@@ -10,12 +10,12 @@
 
   <div class="sidebar__rooms-container flex-1 overflow-y-auto">
     <div class="sidebar__rooms flex flex-col items-center gap-2 w-full">
-      @for (item of rooms; track $index) {
+      @for (room of roomList.values; track $index) {
       <div
         class="sidebar__room room__item flex items-center w-full gap-2 rounded-lg cursor-pointer"
       >
         <i class="fa-solid fa-circle-user text-gray-700 pl-2"></i>
-        <div class="truncate w-full text-base py-2">{{ item }}</div>
+        <div class="truncate w-full text-base py-2">{{ room.name }}</div>
         <div class="p-2 h-full" [matMenuTriggerFor]="menu">
           <i class="fa-solid fa-ellipsis"></i>
         </div>
