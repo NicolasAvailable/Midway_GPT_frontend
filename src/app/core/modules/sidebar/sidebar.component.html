@@ -8,6 +8,11 @@
     </div>
   </div>
 
+  @if(isLoading){
+  <div class="flex items-center justify-center w-full h-full">
+    <span class="loading loading-spinner loading-md"></span>
+  </div>
+  } @else {
   <div class="sidebar__rooms-container flex-1 overflow-y-auto">
     <div class="sidebar__rooms flex flex-col items-center gap-2 w-full">
       @for (room of roomList.values; track $index) {
@@ -41,4 +46,5 @@
       </ng-template>
     </mat-menu>
   </div>
+  }
 </aside>
