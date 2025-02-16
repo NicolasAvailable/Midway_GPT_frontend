@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ChatContainerComponent } from './components/chat-container/chat-container.component';
 import { ConversationComponent } from './conversation.component';
 
 const routes: Routes = [
@@ -9,8 +8,18 @@ const routes: Routes = [
     component: ConversationComponent,
     children: [
       {
+        path: '',
+        loadComponent: () =>
+          import('./components/chat-creator/chat-creator.component').then(
+            (m) => m.ChatCreatorComponent
+          ),
+      },
+      {
         path: ':id',
-        component: ChatContainerComponent,
+        loadComponent: () =>
+          import('./components/chat-container/chat-container.component').then(
+            (m) => m.ChatContainerComponent
+          ),
       },
     ],
   },

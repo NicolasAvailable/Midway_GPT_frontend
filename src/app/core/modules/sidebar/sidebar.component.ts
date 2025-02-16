@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { MaterialModule } from '../../../shared/modules/material.module';
-import { RoomCreatorComponent } from './components/room-creator/room-creator.component';
+import { RoomDialogOpenerService } from './data/services/room-dialog-opener.service';
 import { SidebarService } from './data/services/sidebar.service';
 import { RoomStore } from './data/store/room.store';
 
@@ -15,14 +14,10 @@ import { RoomStore } from './data/store/room.store';
 })
 export class SidebarComponent implements OnInit {
   private sidebarService = inject(SidebarService);
-  private dialog = inject(MatDialog);
+  protected roomDialogOpener = inject(RoomDialogOpenerService);
   protected roomStore = inject(RoomStore);
 
   ngOnInit(): void {
     this.sidebarService.get();
-  }
-
-  public create() {
-    this.dialog.open(RoomCreatorComponent);
   }
 }
