@@ -1,17 +1,34 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { RoomList } from '../models/room-list.models';
+import { inject, Injectable } from '@angular/core';
+import { RoomBody } from '../interfaces/room-body.interfaces';
+import { RoomStore } from '../store/room.store';
+import { ExceptionRoomCreatorService } from './exceptions/exception-room-creator.service';
+import { RoomCreatorService } from './room-creator.service';
 import { RoomGetterService } from './room-getter.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SidebarService {
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
+  private roomStore = inject(RoomStore);
+  private exceptionRoomCreator = inject(ExceptionRoomCreatorService);
 
-  public get(): Observable<RoomList> {
+  public get(): void {
+    this.roomStore.update({ isLoading: true });
     const roomService = new RoomGetterService(this.http);
-    return roomService.execute();
+    roomService
+      .execute()
+      .subscribe((roomList) =>
+        this.roomStore.update({ roomList, isLoading: false })
+      );
+  }
+
+  public create(body: RoomBody) {
+    const roomService = new RoomCreatorService(
+      this.http,
+      this.exceptionRoomCreator
+    );
+    return roomService.execute(body);
   }
 }

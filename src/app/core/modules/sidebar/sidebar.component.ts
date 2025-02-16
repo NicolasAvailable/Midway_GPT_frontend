@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MaterialModule } from '../../../shared/modules/material.module';
-import { RoomList } from './data/models/room-list.models';
+import { RoomCreatorComponent } from './components/room-creator/room-creator.component';
 import { SidebarService } from './data/services/sidebar.service';
+import { RoomStore } from './data/store/room.store';
 
 @Component({
   selector: 'mw-sidebar',
@@ -12,15 +14,15 @@ import { SidebarService } from './data/services/sidebar.service';
   styleUrl: './sidebar.component.css',
 })
 export class SidebarComponent implements OnInit {
-  protected roomList: RoomList | null = null;
-  protected isLoading: boolean = true;
-
-  constructor(protected sidebarService: SidebarService) {}
+  private sidebarService = inject(SidebarService);
+  private dialog = inject(MatDialog);
+  protected roomStore = inject(RoomStore);
 
   ngOnInit(): void {
-    this.sidebarService.get().subscribe((roomList) => {
-      this.roomList = { ...roomList };
-      this.isLoading = false;
-    });
+    this.sidebarService.get();
+  }
+
+  public create() {
+    this.dialog.open(RoomCreatorComponent);
   }
 }

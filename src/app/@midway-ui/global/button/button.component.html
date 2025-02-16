@@ -1,0 +1,10 @@
+<button
+  class="mw__button"
+  [disabled]="isDisabled"
+  [ngClass]="{ disabled: isDisabled,
+    'mw__button--primary': color === 'primary',
+    'mw__button--secondary': color === 'secondary',
+   }"
+>
+  {{ text }}
+</button>

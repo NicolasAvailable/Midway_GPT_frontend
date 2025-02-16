@@ -7,7 +7,7 @@ import { oAuthGoogleConfig } from '../../../config/0auth.config';
 })
 export class OauthService {
   constructor(private oauthService: OAuthService) {
-    this.iniLogin();
+    // this.iniLogin();
   }
 
   private async iniLogin() {

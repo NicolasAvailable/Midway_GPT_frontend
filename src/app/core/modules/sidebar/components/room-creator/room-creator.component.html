@@ -1,0 +1,89 @@
+<div class="room__container">
+  <div class="room__header">
+    <h2 class="font-bold text-lg">Crear nuevo asistente</h2>
+  </div>
+  <div class="flex flex-col p-5 h-full">
+    <div class="room__content h-full">
+      <form
+        class="flex flex-col gap-3 h-full"
+        [formGroup]="form"
+        (ngSubmit)="create()"
+      >
+        <div class="input__box">
+          <div class="room__input__box items-center">
+            <label class="flex gap-1 items-center" for="name">
+              <span class="input__label text-sm font-semibold"> Nombre </span>
+              <span class="font-semibold text-warn"> * </span>
+            </label>
+
+            <span class="text-sm">
+              {{ form.get("name").value.length }}/{{ maxNameLength }}
+            </span>
+          </div>
+          <input
+            id="name"
+            mwInputInvalid
+            type="text"
+            class="mw__input-primary"
+            formControlName="name"
+            [error]="form.get('name')"
+          />
+          <span
+            mwInputError
+            class="input__required"
+            [ensureTouched]="false"
+            [error]="form.get('name')"
+            >{{ form.get("name").errors | nameErrorSetter }}</span
+          >
+        </div>
+
+        <div class="input__box">
+          <div class="room__input__box items-center">
+            <label class="flex gap-1 items-center" for="description">
+              <span class="input__label text-sm font-semibold">
+                Descripción
+              </span>
+            </label>
+
+            <span class="text-sm">
+              {{ form.get("description").value.length }}/{{
+                maxDescriptionLength
+              }}
+            </span>
+          </div>
+          <textarea
+            id="description"
+            #autosize="cdkTextareaAutosize"
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="2"
+            cdkAutosizeMaxRows="6"
+            mwInputInvalid
+            type="text"
+            class="mw__input-primary resize-none overflow-hidden"
+            formControlName="description"
+            [error]="form.get('description')"
+          ></textarea>
+          <span
+            mwInputError
+            class="input__required"
+            [ensureTouched]="false"
+            [error]="form.get('description')"
+            >{{ form.get("description").errors | descriptionErrorSetter }}</span
+          >
+        </div>
+      </form>
+    </div>
+    <div class="flex flex-col gap-2">
+      <mw-button
+        text="Cancelar"
+        color="secondary"
+        (click)="dialogRef.close()"
+      ></mw-button>
+      <mw-button
+        text="Crear"
+        [isDisabled]="form.invalid"
+        (click)="create()"
+      ></mw-button>
+    </div>
+  </div>
+</div>

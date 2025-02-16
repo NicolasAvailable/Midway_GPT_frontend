@@ -1,28 +1,32 @@
 <aside class="sidebar__container gap-2">
-  <div class="sidebar__header">
+  <div class="sidebar__header flex flex-col gap-6">
+    <div class="flex items-center justify-center">
+      <img src="assets/img/logo-midway.svg" />
+    </div>
     <div
       class="room__item flex items-center w-full gap-2 p-2 rounded-lg cursor-pointer"
+      (click)="create()"
     >
-      <i class="fa-solid fa-circle-plus text-gray-700"></i>
+      <i class="fa-solid fa-circle-plus text-primary"></i>
       <span class="sidebar__header-title">Crear nuevo asistente</span>
     </div>
   </div>
 
-  @if(isLoading){
-  <div class="flex items-center justify-center w-full h-full">
-    <span class="loading loading-spinner loading-md"></span>
+  @if(roomStore.get().isLoading){
+  <div class="flex items-start justify-center w-full h-full pt-6">
+    <span class="loading loading-spinner loading-md text-primary"></span>
   </div>
   } @else {
   <div class="sidebar__rooms-container flex-1 overflow-y-auto">
     <div class="sidebar__rooms flex flex-col items-center gap-2 w-full">
-      @for (room of roomList.values; track $index) {
+      @for (room of roomStore.get().roomList.values; track $index) {
       <div
         class="sidebar__room room__item flex items-center w-full gap-2 rounded-lg cursor-pointer"
       >
-        <i class="fa-solid fa-circle-user text-gray-700 pl-2"></i>
+        <i class="fa-solid fa-circle-user text-primary pl-2"></i>
         <div class="truncate w-full text-base py-2">{{ room.name }}</div>
         <div class="p-2 h-full" [matMenuTriggerFor]="menu">
-          <i class="fa-solid fa-ellipsis"></i>
+          <i class="fa-solid fa-ellipsis text-primary"></i>
         </div>
       </div>
       }
@@ -31,16 +35,16 @@
       <ng-template matMenuContent>
         <div class="flex flex-col">
           <div
-            class="flex gap-2 items-center p-2 cursor-pointer text-gray-700 hover:bg-gray-200"
+            class="flex gap-2 items-center p-2 cursor-pointer hover:bg-gray-200"
           >
-            <i class="fa-solid fa-pen-to-square text-sm"></i>
-            <button class="text-sm font-medium font-serif">Editar</button>
+            <i class="fa-solid fa-pen-to-square text-sm text-primary"></i>
+            <button class="text-sm font-medium text-gray-700">Editar</button>
           </div>
           <div
-            class="flex gap-2 items-center p-2 cursor-pointer text-gray-700 hover:bg-gray-200"
+            class="flex gap-2 items-center p-2 cursor-pointer hover:bg-gray-200"
           >
-            <i class="fa-solid fa-trash text-sm"></i>
-            <button class="text-sm font-medium font-serif">Eliminar</button>
+            <i class="fa-solid fa-trash text-sm text-primary"></i>
+            <button class="text-sm font-medium text-gray-700">Eliminar</button>
           </div>
         </div>
       </ng-template>

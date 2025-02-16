@@ -7,7 +7,7 @@ export class RoomEntitiesToRoomsDomainMapper {
 
   public map() {
     const rooms = this.roomEntities.map((roomEntity) =>
-      Room.create(roomEntity._id, roomEntity.name)
+      Room.create(roomEntity._id, roomEntity.name, roomEntity.createdAt)
     );
     return new RoomList(rooms);
   }

@@ -5,19 +5,12 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   selector: 'mw-button',
   standalone: true,
   imports: [NgClass],
-  template: `
-    <button
-      class="mw__button"
-      [disabled]="isDisabled"
-      [ngClass]="{ disabled: isDisabled }"
-    >
-      {{ text }}
-    </button>
-  `,
+  templateUrl: './button.component.html',
   styleUrl: './button.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
   @Input() text: string;
   @Input() isDisabled: boolean;
+  @Input() color: string = 'primary';
 }

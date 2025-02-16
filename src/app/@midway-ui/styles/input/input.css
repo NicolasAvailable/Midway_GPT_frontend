@@ -19,6 +19,27 @@
   cursor: auto !important;
 }
 
+.mw__input-primary {
+  height: 36px;
+  width: 100%;
+  border: 2px solid var(--color-main);
+  border-radius: 5px;
+  background-color: white;
+  padding-left: 0.4vw;
+  padding-right: 0.4vw;
+  padding-top: 0.2vw;
+  padding-bottom: 0.2vw;
+  font-size: 14px;
+}
+
+.mw__input-primary:focus {
+  outline: none;
+}
+
+.mw__input-primary::placeholder {
+  background-color: white;
+}
+
 .mw__input__icon {
   height: 100%;
   position: absolute;
@@ -67,4 +88,8 @@
 
 .mw__input__error {
   border-color: var(--color-warn) !important;
+}
+
+.mw__character__counter__error {
+  color: var(--color-warn) !important;
 }

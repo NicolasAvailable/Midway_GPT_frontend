@@ -1,0 +1,41 @@
+.room__container {
+  display: grid;
+  grid-template-rows: 10% 1fr;
+  height: 75vh;
+  width: 25vw;
+  background-color: white;
+}
+
+.room__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-hover-light);
+}
+
+.room__input__box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input__box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.input__label {
+  color: var(--color-black);
+}
+
+::ng-deep
+  .cdk-overlay-container
+  .cdk-global-overlay-wrapper
+  .cdk-overlay-pane
+  .mat-mdc-dialog-container
+  .mdc-dialog__container
+  .mat-mdc-dialog-surface {
+  border: 2px solid var(--color-main);
+}

@@ -4,8 +4,24 @@
 }
 
 .cdk-overlay-container,
+.cdk-global-overlay-wrapper
+  .cdk-overlay-pane
+  .mat-mdc-dialog-container
+  .mdc-dialog__container
+  .mat-mdc-dialog-surface {
+  border-radius: 4%;
+}
+
+.cdk-overlay-container
+  .cdk-overlay-connected-position-bounding-box
+  .cdk-overlay-pane
+  .mat-mdc-menu-panel {
+  border-radius: 10px;
+}
+
+.cdk-overlay-container,
 .cdk-global-overlay-wrapper {
-  z-index: 9999999;
+  z-index: 9999999 !important;
 }
 
 .cdk-overlay-container .cdk-overlay-backdrop:nth-of-type(1) {
