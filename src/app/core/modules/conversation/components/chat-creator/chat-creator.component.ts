@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RoomDialogOpenerService } from '../../../sidebar/data/services/room-dialog-opener.service';
+import { RoomDialogOpenerService } from '../../../room/data/services/room-dialog-opener.service';
 
 @Component({
   selector: 'mw-chat-creator',

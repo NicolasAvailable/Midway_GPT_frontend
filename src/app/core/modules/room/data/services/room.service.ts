@@ -9,7 +9,7 @@ import { RoomGetterService } from './room-getter.service';
 @Injectable({
   providedIn: 'root',
 })
-export class SidebarService {
+export class RoomService {
   private http = inject(HttpClient);
   private roomStore = inject(RoomStore);
   private exceptionRoomCreator = inject(ExceptionRoomCreatorService);

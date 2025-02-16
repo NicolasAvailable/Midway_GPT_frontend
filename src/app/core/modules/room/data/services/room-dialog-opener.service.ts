@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { RoomCreatorComponent } from '../../components/room-creator/room-creator.component';
+import { RoomCreatorComponent } from '../../views/room-creator/room-creator.component';
 
 @Injectable({
   providedIn: 'root',

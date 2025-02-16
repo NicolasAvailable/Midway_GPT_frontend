@@ -16,7 +16,7 @@ import { RoomList } from '../../data/models/room-list.models';
 import { Room } from '../../data/models/room.models';
 import { DescriptionErrorSetterPipe } from '../../data/pipes/description-error-setter.pipe';
 import { NameErrorSetterPipe } from '../../data/pipes/name-error-setter.pipe';
-import { SidebarService } from '../../data/services/sidebar.service';
+import { RoomService } from '../../data/services/room.service';
 import { RoomStore } from '../../data/store/room.store';
 
 @Component({
@@ -37,7 +37,7 @@ import { RoomStore } from '../../data/store/room.store';
 })
 export class RoomCreatorComponent implements OnInit {
   protected dialogRef = inject(MatDialogRef<RoomCreatorComponent>);
-  private sidebarService = inject(SidebarService);
+  private roomService = inject(RoomService);
   private formBuilder = inject(FormBuilder);
   private roomStore = inject(RoomStore);
   protected form: FormGroup = null;
@@ -63,7 +63,7 @@ export class RoomCreatorComponent implements OnInit {
     const name = this.form.get('name').value.trim();
     const description = this.form.get('description').value.trim();
     const body: RoomBody = { name, description };
-    this.sidebarService.create(body).subscribe((room) => this.success(room));
+    this.roomService.create(body).subscribe((room) => this.success(room));
   }
 
   private success(room: Room) {

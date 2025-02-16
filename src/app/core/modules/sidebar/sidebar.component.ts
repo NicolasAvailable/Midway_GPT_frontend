@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { MaterialModule } from '../../../shared/modules/material.module';
-import { RoomDialogOpenerService } from './data/services/room-dialog-opener.service';
-import { SidebarService } from './data/services/sidebar.service';
-import { RoomStore } from './data/store/room.store';
+import { RoomDialogOpenerService } from '../room/data/services/room-dialog-opener.service';
+import { RoomService } from '../room/data/services/room.service';
+import { RoomStore } from '../room/data/store/room.store';
 
 @Component({
   selector: 'mw-sidebar',
@@ -13,11 +13,11 @@ import { RoomStore } from './data/store/room.store';
   styleUrl: './sidebar.component.css',
 })
 export class SidebarComponent implements OnInit {
-  private sidebarService = inject(SidebarService);
+  private roomService = inject(RoomService);
   protected roomDialogOpener = inject(RoomDialogOpenerService);
   protected roomStore = inject(RoomStore);
 
   ngOnInit(): void {
-    this.sidebarService.get();
+    this.roomService.get();
   }
 }
