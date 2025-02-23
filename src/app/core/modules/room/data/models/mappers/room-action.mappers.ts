@@ -1,8 +1,8 @@
-import { RoomCreatorResponse } from '../../interfaces/room-creator-response.interfaces';
+import { RoomActionResponse } from '../../interfaces/room-action-response.interfaces';
 import { Room } from '../room.models';
 
-export class RoomCreatorMapper {
-  constructor(private response: RoomCreatorResponse) {}
+export class RoomActionMapper {
+  constructor(private response: RoomActionResponse) {}
 
   public map() {
     return Room.create(

@@ -8,7 +8,7 @@ export abstract class Store<T> {
   }
 
   public get get() {
-    return this.state;
+    return this.state.asReadonly();
   }
 
   public save(state: T) {

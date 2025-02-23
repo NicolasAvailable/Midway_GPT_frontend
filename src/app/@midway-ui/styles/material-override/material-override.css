@@ -3,6 +3,15 @@
   font-weight: 400;
 }
 
+.cdk-overlay-container
+  .cdk-global-overlay-wrapper
+  .cdk-overlay-pane
+  .mat-mdc-dialog-container
+  .mdc-dialog__container
+  .mat-mdc-dialog-surface {
+  border: 2px solid var(--color-main);
+}
+
 .cdk-overlay-container,
 .cdk-global-overlay-wrapper
   .cdk-overlay-pane

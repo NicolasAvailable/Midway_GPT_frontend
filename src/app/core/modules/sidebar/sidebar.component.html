@@ -5,7 +5,7 @@
     </div>
     <div
       class="room__item flex items-center w-full gap-2 p-2 rounded-lg cursor-pointer"
-      (click)="roomDialogOpener.open()"
+      (click)="roomDialogService.openCreator()"
     >
       <i class="fa-solid fa-circle-plus text-primary"></i>
       <span class="sidebar__header-title">Crear nuevo asistente</span>
@@ -25,26 +25,35 @@
       >
         <i class="fa-solid fa-circle-user text-primary pl-2"></i>
         <div class="truncate w-full text-base py-2">{{ room.name }}</div>
-        <div class="p-2 h-full" [matMenuTriggerFor]="menu">
+        <div
+          class="p-2 h-full"
+          [matMenuTriggerFor]="menu"
+          [matMenuTriggerData]="{ id: room.id }"
+        >
           <i class="fa-solid fa-ellipsis text-primary"></i>
         </div>
       </div>
       }
     </div>
     <mat-menu #menu="matMenu" xPosition="after" yPosition="below">
-      <ng-template matMenuContent>
+      <ng-template matMenuContent let-id="id">
         <div class="flex flex-col">
           <div
             class="flex gap-2 items-center p-2 cursor-pointer hover:bg-gray-200"
           >
             <i class="fa-solid fa-pen-to-square text-sm text-primary"></i>
-            <button class="text-sm font-medium text-gray-700">Editar</button>
+            <button class="truncate text-sm font-medium text-gray-700">
+              Editar
+            </button>
           </div>
           <div
             class="flex gap-2 items-center p-2 cursor-pointer hover:bg-gray-200"
+            (click)="roomDialogService.openRemover(id)"
           >
             <i class="fa-solid fa-trash text-sm text-primary"></i>
-            <button class="text-sm font-medium text-gray-700">Eliminar</button>
+            <button class="truncate text-sm font-medium text-gray-700">
+              Eliminar
+            </button>
           </div>
         </div>
       </ng-template>

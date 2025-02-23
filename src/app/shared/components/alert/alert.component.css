@@ -1,0 +1,11 @@
+.alert__container {
+  display: flex;
+  flex-direction: column;
+  height: 30vh;
+  width: 26vw;
+  background-color: var(--sidebar-primary-light);
+}
+
+.alert__header {
+  background-color: var(--color-hover-light);
+}

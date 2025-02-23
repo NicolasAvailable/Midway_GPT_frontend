@@ -3,26 +3,26 @@ import { toast } from 'ngx-sonner';
 import { catchError, map, Observable, of } from 'rxjs';
 import { API } from '../../../../../config/api.config';
 import { RoomActionResponse } from '../interfaces/room-action-response.interfaces';
-import { RoomBody } from '../interfaces/room-body.interfaces';
+import { RoomId } from '../interfaces/room-response.interfaces';
 import { RoomActionMapper } from '../models/mappers/room-action.mappers';
 import { Room } from '../models/room.models';
-import { ExceptionRoomCreatorService } from './exceptions/exception-room-creator.service';
+import { ExceptionRoomRemoverService } from './exceptions/exception-room-remover.service';
 
-export class RoomCreatorService {
+export class RoomRemoverService {
   private API = API;
 
   constructor(
     private http: HttpClient,
-    private exceptionRoomCreator: ExceptionRoomCreatorService
+    private exceptionRoomRemover: ExceptionRoomRemoverService
   ) {}
 
-  public execute(body: RoomBody): Observable<Room> {
+  public execute(id: RoomId): Observable<Room> {
     toast.loading('Cargando...');
     return this.http
-      .post<RoomActionResponse>(`${this.API.url_develop}/room`, body)
+      .delete<RoomActionResponse>(`${this.API.url_develop}/room/${id}`)
       .pipe(
         catchError(() => {
-          this.exceptionRoomCreator.throw();
+          this.exceptionRoomRemover.throw();
           return of(null);
         }),
         map((resp) => new RoomActionMapper(resp).map())

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RoomDialogOpenerService } from '../../../room/data/services/room-dialog-opener.service';
+import { RoomDialogService } from '../../../room/data/services/room-dialog.service';
 
 @Component({
   selector: 'mw-chat-creator',
@@ -9,5 +9,5 @@ import { RoomDialogOpenerService } from '../../../room/data/services/room-dialog
   styleUrl: './chat-creator.component.css',
 })
 export class ChatCreatorComponent {
-  protected roomDialogOpener = inject(RoomDialogOpenerService);
+  protected roomDialogService = inject(RoomDialogService);
 }
