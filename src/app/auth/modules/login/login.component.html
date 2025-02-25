@@ -18,9 +18,10 @@
           </div>
           <input
             id="email"
-            class="mw__input-primary"
+            class=""
             type="text"
             formControlName="email"
+            mwInput
             mwInputInvalid
             [error]="form.get('email')"
           />
@@ -41,9 +42,10 @@
           <div class="input__password">
             <input
               id="password"
-              class="mw__input-primary password__input"
+              class="password__input"
               type="password"
               formControlName="password"
+              mwInput
               mwInputInvalid
               onShowPassword
               [showPassword]="showPassword"

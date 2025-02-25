@@ -10,14 +10,19 @@ import { toast } from 'ngx-sonner';
 import { ButtonComponent } from '../../../../../@midway-UI/global/button/button.component';
 import { MwInputErrorDirective } from '../../../../../@midway-UI/global/input/mw-input-error.directive';
 import { MwInputInvalidDirective } from '../../../../../@midway-UI/global/input/mw-input-invalid.directive';
+import { MwInputDirective } from '../../../../../@midway-UI/global/input/mw-input.directive';
 import { MaterialModule } from '../../../../../shared/modules/material.module';
 import { RoomBody } from '../../data/interfaces/room-body.interfaces';
-import { RoomList } from '../../data/models/room-list.models';
 import { Room } from '../../data/models/room.models';
 import { DescriptionErrorSetterPipe } from '../../data/pipes/description-error-setter.pipe';
 import { NameErrorSetterPipe } from '../../data/pipes/name-error-setter.pipe';
 import { RoomService } from '../../data/services/room.service';
 import { RoomStore } from '../../data/store/room.store';
+import {
+  ROOM_DESCRIPTION_MAX_CHARACTERS,
+  ROOM_NAME_MAX_CHARACTERS,
+  ROOM_NAME_MIN_CHARACTERS,
+} from '../../data/validators/room-max-characters.validators';
 
 @Component({
   selector: 'mw-room-creator',
@@ -26,6 +31,7 @@ import { RoomStore } from '../../data/store/room.store';
     ReactiveFormsModule,
     MaterialModule,
     ButtonComponent,
+    MwInputDirective,
     MwInputErrorDirective,
     MwInputInvalidDirective,
     NameErrorSetterPipe,
@@ -41,8 +47,8 @@ export class RoomCreatorComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
   private roomStore = inject(RoomStore);
   protected form: FormGroup = null;
-  protected maxNameLength: number = 100;
-  protected maxDescriptionLength: number = 400;
+  protected maxNameLength: number = ROOM_NAME_MAX_CHARACTERS;
+  protected maxDescriptionLength: number = ROOM_DESCRIPTION_MAX_CHARACTERS;
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -50,11 +56,14 @@ export class RoomCreatorComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(5),
-          Validators.maxLength(this.maxNameLength),
+          Validators.minLength(ROOM_NAME_MIN_CHARACTERS),
+          Validators.maxLength(ROOM_NAME_MAX_CHARACTERS),
         ],
       ],
-      description: ['', [Validators.maxLength(this.maxDescriptionLength)]],
+      description: [
+        '',
+        [Validators.maxLength(ROOM_DESCRIPTION_MAX_CHARACTERS)],
+      ],
     });
   }
 
@@ -70,7 +79,8 @@ export class RoomCreatorComponent implements OnInit {
     this.dialogRef.close();
     toast.dismiss();
     toast.success('Se ha creado el asistente correctamente');
-    const rooms = this.roomStore.get().roomList.values;
-    this.roomStore.update({ roomList: new RoomList([room, ...rooms]) });
+    this.roomStore.update({
+      roomList: this.roomStore.get().roomList.add(room),
+    });
   }
 }

@@ -11,10 +11,8 @@ export class MwInputCharacterCounterInvalidDirective {
       const className = 'mw__character__counter__error';
       const maxLengthError = control?.errors['maxlength'];
       if (maxLengthError) {
-        console.log('colocó');
         this.elementRef.nativeElement.classList.add(className);
       } else {
-        console.log('retiró');
         this.elementRef.nativeElement.classList.remove(className);
       }
     });

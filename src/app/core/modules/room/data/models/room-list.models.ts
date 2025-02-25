@@ -8,7 +8,19 @@ export class RoomList {
     this.values = rooms;
   }
 
+  public add(room: Room) {
+    return new RoomList([...this.values, room]);
+  }
+
   public filter(id: RoomId) {
     return new RoomList(this.values.filter((room) => room.id !== id));
+  }
+
+  public replace(room: Room) {
+    return new RoomList(
+      this.values.map((currentRoom) =>
+        currentRoom.id === room.id ? room : currentRoom
+      )
+    );
   }
 }

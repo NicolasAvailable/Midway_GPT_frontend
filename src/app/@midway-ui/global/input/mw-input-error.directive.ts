@@ -28,6 +28,4 @@ export class MwInputErrorDirective {
     this.elementRef.nativeElement.classList.add('mw__input__span__error');
     this.elementRef.nativeElement.classList.add('text-sm');
   }
-
-  p;
 }

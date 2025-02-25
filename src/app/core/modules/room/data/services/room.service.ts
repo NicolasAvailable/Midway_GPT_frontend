@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RoomBody } from '../interfaces/room-body.interfaces';
+import { RoomBody, RoomBodyUpdate } from '../interfaces/room-body.interfaces';
 import { RoomId } from '../interfaces/room-response.interfaces';
 import { Room } from '../models/room.models';
 import { RoomStore } from '../store/room.store';
@@ -10,6 +10,7 @@ import { ExceptionRoomRemoverService } from './exceptions/exception-room-remover
 import { RoomCreatorService } from './room-creator.service';
 import { RoomGetterService } from './room-getter.service';
 import { RoomRemoverService } from './room-remover.service';
+import { RoomUpdaterService } from './room-updater.service';
 
 @Injectable({
   providedIn: 'root',
@@ -36,6 +37,11 @@ export class RoomService {
       this.exceptionRoomCreator
     );
     return roomService.execute(body);
+  }
+
+  public edit(id: RoomId, body: RoomBodyUpdate) {
+    const roomService = new RoomUpdaterService(this.http);
+    return roomService.execute(id, body);
   }
 
   public remove(id: RoomId): Observable<Room> {

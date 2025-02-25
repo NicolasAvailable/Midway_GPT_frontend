@@ -19,7 +19,8 @@
   } @else {
   <div class="sidebar__rooms-container flex-1 overflow-y-auto">
     <div class="sidebar__rooms flex flex-col items-center gap-2 w-full">
-      @for (room of roomStore.get().roomList.values; track $index) {
+      @for (room of roomStore.get().roomList.values; track $index) { @if(room.id
+      !== roomIdSelected){
       <div
         class="sidebar__room room__item flex items-center w-full gap-2 rounded-lg cursor-pointer"
       >
@@ -28,18 +29,40 @@
         <div
           class="p-2 h-full"
           [matMenuTriggerFor]="menu"
-          [matMenuTriggerData]="{ id: room.id }"
+          [matMenuTriggerData]="{ id: room.id, name: room.name }"
         >
           <i class="fa-solid fa-ellipsis text-primary"></i>
         </div>
       </div>
-      }
+      } @else {
+      <input
+        mwInput
+        mwInputInvalid
+        autoFocus
+        class="room__input text-base"
+        [error]="name"
+        [autoFocus]="focusIncrease"
+        [formControl]="name"
+        (blur)="reset()"
+        (keyup.enter)="edit()"
+      />
+      <div class="flex w-full">
+        <span
+          mwInputError
+          class="input__required text-xs"
+          [ensureTouched]="false"
+          [error]="name"
+          >{{ name.errors | nameErrorSetter }}</span
+        >
+      </div>
+      } }
     </div>
     <mat-menu #menu="matMenu" xPosition="after" yPosition="below">
-      <ng-template matMenuContent let-id="id">
+      <ng-template matMenuContent let-id="id" let-name="name">
         <div class="flex flex-col">
           <div
             class="flex gap-2 items-center p-2 cursor-pointer hover:bg-gray-200"
+            (click)="changeToEdit(id, name)"
           >
             <i class="fa-solid fa-pen-to-square text-sm text-primary"></i>
             <button class="truncate text-sm font-medium text-gray-700">

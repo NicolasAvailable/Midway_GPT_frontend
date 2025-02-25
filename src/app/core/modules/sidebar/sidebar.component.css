@@ -6,13 +6,25 @@
   overflow-y: auto;
 }
 
+.options {
+  display: none;
+}
+
 .room__item:hover {
   background-color: var(--color-hover-light);
+}
+
+.room__item:hover .options {
+  display: block;
 }
 
 .sidebar__rooms-container,
 .sidebar__header {
   padding: 0px 5%;
+}
+
+.room__input {
+  background: transparent !important;
 }
 
 .sidebar__rooms-container::-webkit-scrollbar {
