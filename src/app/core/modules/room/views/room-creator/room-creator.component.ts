@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { toast } from 'ngx-sonner';
 import { ButtonComponent } from '../../../../../@midway-UI/global/button/button.component';
 import { MwInputErrorDirective } from '../../../../../@midway-UI/global/input/mw-input-error.directive';
@@ -42,6 +43,7 @@ import {
   styleUrl: './room-creator.component.css',
 })
 export class RoomCreatorComponent implements OnInit {
+  protected router = inject(Router);
   protected dialogRef = inject(MatDialogRef<RoomCreatorComponent>);
   private roomService = inject(RoomService);
   private formBuilder = inject(FormBuilder);
@@ -82,5 +84,6 @@ export class RoomCreatorComponent implements OnInit {
     this.roomStore.update({
       roomList: this.roomStore.get().roomList.add(room),
     });
+    this.router.navigate(['app', 'c', room.id]);
   }
 }

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 import { toast } from 'ngx-sonner';
 import { timer } from 'rxjs';
 import { MwInputErrorDirective } from '../../../@midway-UI/global/input/mw-input-error.directive';
@@ -25,6 +26,7 @@ import {
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    RouterLink,
     MaterialModule,
     MwInputErrorDirective,
     MwInputDirective,
@@ -36,9 +38,10 @@ import {
   styleUrl: './sidebar.component.css',
 })
 export class SidebarComponent implements OnInit {
-  private roomService = inject(RoomService);
+  protected router = inject(Router);
   protected roomDialogService = inject(RoomDialogService);
   protected roomStore = inject(RoomStore);
+  private roomService = inject(RoomService);
 
   protected roomIdSelected: RoomId = null;
   protected name = new FormControl('', [
@@ -71,6 +74,7 @@ export class SidebarComponent implements OnInit {
     this.roomStore.update({
       roomList: this.roomStore.get().roomList.replace(room),
     });
+    this.router.navigate(['app', 'c', room.id]);
     this.reset();
   }
 

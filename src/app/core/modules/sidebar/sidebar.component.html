@@ -23,6 +23,7 @@
       !== roomIdSelected){
       <div
         class="sidebar__room room__item flex items-center w-full gap-2 rounded-lg cursor-pointer"
+        [routerLink]="[room.id]"
       >
         <i class="fa-solid fa-circle-user text-primary pl-2"></i>
         <div class="truncate w-full text-base py-2">{{ room.name }}</div>

@@ -13,9 +13,10 @@ import { ConversationComponent } from './conversation.component';
     RouterOutlet,
     FormsModule,
     SharedModule,
+    ChatContainerComponent,
     SidebarComponent,
   ],
-  declarations: [ConversationComponent, ChatContainerComponent],
+  declarations: [ConversationComponent],
   exports: [ConversationComponent],
 })
 export class ConversationModule {}
