@@ -24,6 +24,7 @@
       <div
         class="sidebar__room room__item flex items-center w-full gap-2 rounded-lg cursor-pointer"
         [routerLink]="[room.id]"
+        [routerLinkActive]="['room__active']"
       >
         <i class="fa-solid fa-circle-user text-primary pl-2"></i>
         <div class="truncate w-full text-base py-2">{{ room.name }}</div>
@@ -31,6 +32,7 @@
           class="p-2 h-full"
           [matMenuTriggerFor]="menu"
           [matMenuTriggerData]="{ id: room.id, name: room.name }"
+          (click)="$event.stopPropagation()"
         >
           <i class="fa-solid fa-ellipsis text-primary"></i>
         </div>

@@ -12,9 +12,10 @@
   --color-warn: #e31629;
   --color-black: #3f3e45;
   --color-stroke: #d7d7d7;
-  --color-gray-light: #f9f9f9;
+  --color-gray-primary: #f9f9f9;
+  --color-gray-stroke: rgb(224 224 224 / 71%);
   --color-hover-light: #e3e3e3;
-  --sidebar-primary-light: var(--color-gray-light);
+  --sidebar-primary-light: var(--color-gray-primary);
 }
 
 body {
@@ -26,4 +27,28 @@ body {
 mw-home {
   height: 100%;
   width: 100%;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px; /* Bordes redondeados */
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.4);
 }

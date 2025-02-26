@@ -8,6 +8,7 @@ import { RoomStore } from '../store/room.store';
 import { ExceptionRoomCreatorService } from './exceptions/exception-room-creator.service';
 import { ExceptionRoomRemoverService } from './exceptions/exception-room-remover.service';
 import { RoomCreatorService } from './room-creator.service';
+import { RoomGetterOneService } from './room-getter-one.service';
 import { RoomGetterService } from './room-getter.service';
 import { RoomRemoverService } from './room-remover.service';
 import { RoomUpdaterService } from './room-updater.service';
@@ -29,6 +30,11 @@ export class RoomService {
       .subscribe((roomList) =>
         this.roomStore.update({ roomList, isLoading: false })
       );
+  }
+
+  public getOne(id: RoomId): Observable<Room> {
+    const roomService = new RoomGetterOneService(this.http);
+    return roomService.execute(id);
   }
 
   public create(body: RoomBody): Observable<Room> {

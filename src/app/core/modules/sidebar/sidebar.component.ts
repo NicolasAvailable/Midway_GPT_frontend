@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { toast } from 'ngx-sonner';
 import { timer } from 'rxjs';
 import { MwInputErrorDirective } from '../../../@midway-UI/global/input/mw-input-error.directive';
@@ -27,6 +27,7 @@ import {
     CommonModule,
     ReactiveFormsModule,
     RouterLink,
+    RouterLinkActive,
     MaterialModule,
     MwInputErrorDirective,
     MwInputDirective,

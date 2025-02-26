@@ -8,6 +8,10 @@ export class RoomList {
     this.values = rooms;
   }
 
+  public get(id: RoomId) {
+    return this.values.find((room) => (room.id === id ? room : null)) as Room;
+  }
+
   public add(room: Room) {
     return new RoomList([...this.values, room]);
   }

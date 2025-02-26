@@ -1,0 +1,8 @@
+.chat__container {
+  display: flex;
+  width: 100%;
+}
+
+::ng-deep .chat-start .chat-bubble::before {
+  height: 0.7rem !important;
+}
