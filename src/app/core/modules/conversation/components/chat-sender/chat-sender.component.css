@@ -1,0 +1,13 @@
+.sender__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 10vh;
+  padding: 0px 2rem;
+  background-color: var(--color-gray-primary);
+  border-top: 1px solid var(--color-gray-stroke);
+}
+
+.sender__attach__box:hover {
+  background-color: var(--color-hover-light);
+}
