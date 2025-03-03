@@ -1,7 +1,7 @@
 .alert__container {
   display: flex;
   flex-direction: column;
-  height: 30vh;
+  min-height: 15vh;
   width: 26vw;
   background-color: var(--sidebar-primary-light);
 }

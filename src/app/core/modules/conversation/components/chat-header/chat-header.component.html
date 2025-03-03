@@ -1,13 +1,20 @@
 @if (room) {
-<header class="header__container gap-2">
-  <div class="chat__img__box w-10 avatar">
-    <img
-      class="rounded-full"
-      alt="Tailwind CSS chat bubble component"
-      src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-    />
+<header
+  class="header__container gap-2 cursor-pointer"
+  (click)="isOpenDetails = !isOpenDetails; detailTrigger.emit(isOpenDetails)"
+>
+  <div class="header__left gap-2">
+    <div class="chat__img__box w-10 avatar">
+      <img
+        class="rounded-full"
+        alt="Tailwind CSS chat bubble component"
+        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+      />
+    </div>
+    <div class="truncate w-full text-base py-2">{{ room.name }}</div>
   </div>
-
-  <div class="truncate w-full text-base py-2">{{ room.name }}</div>
+  <div class="header__right rounded-full py-1.5 px-4 cursor-pointer">
+    <i class="fa-solid fa-ellipsis-vertical text-primary"></i>
+  </div>
 </header>
 }

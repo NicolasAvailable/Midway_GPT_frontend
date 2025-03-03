@@ -9,7 +9,7 @@ export class DescriptionErrorSetterPipe implements PipeTransform {
   constructor() {
     this.errors.set(
       'maxlength',
-      'La descripción no puede tener más de 400 caracteres'
+      'La descripción no puede tener más de 500 caracteres'
     );
   }
   transform(errors: Record<string, any> | null): any {

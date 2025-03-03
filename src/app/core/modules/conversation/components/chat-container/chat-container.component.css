@@ -3,6 +3,15 @@
   width: 100%;
 }
 
+.chat__container--right {
+  width: 0px;
+  transition: all 0.2s cubic-bezier(0.175, 0.685, 0.32, 1);
+}
+
+.chat__container--right--open {
+  width: 25vw;
+}
+
 ::ng-deep .chat-start .chat-bubble::before {
   height: 0.7rem !important;
 }

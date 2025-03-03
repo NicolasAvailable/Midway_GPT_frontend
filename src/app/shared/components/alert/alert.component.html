@@ -5,18 +5,20 @@
     </h2>
   </div>
   <br />
-  <div class="alert__content px-4">
+  <div class="alert__content px-4 pb-4">
     <p class="text-base">
       {{ message }}
     </p>
     <br />
-    <div class="flex flex-col gap-2">
+    <div class="flex gap-2 h-full">
       <mw-button
+        class="w-full"
         text="Cancelar"
         color="secondary"
         (click)="cancel.emit()"
       ></mw-button>
       <mw-button
+        class="w-full"
         text="Aceptar"
         color="primary"
         (click)="confirm.emit()"

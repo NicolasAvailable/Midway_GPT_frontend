@@ -8,6 +8,7 @@ export class RoomActionMapper {
     return Room.create(
       this.response.data._id,
       this.response.data.name,
+      this.response.data.description ?? '',
       this.response.data.createdAt
     );
   }

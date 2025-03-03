@@ -8,3 +8,14 @@
   background-color: var(--color-gray-primary);
   border-bottom: 1px solid var(--color-gray-stroke);
 }
+
+.header__left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.header__right:hover {
+  background-color: var(--color-hover-light);
+}

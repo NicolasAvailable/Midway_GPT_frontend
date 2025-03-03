@@ -73,13 +73,15 @@
         </div>
       </form>
     </div>
-    <div class="flex flex-col gap-2">
+    <div class="flex gap-2">
       <mw-button
+        class="w-full"
         text="Cancelar"
         color="secondary"
         (click)="dialogRef.close()"
       ></mw-button>
       <mw-button
+        class="w-full"
         text="Crear"
         [isDisabled]="form.invalid"
         (click)="create()"
