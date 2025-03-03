@@ -1,0 +1,28 @@
+<div [ngClass]="{ avatar: url.length > 0, flex: url.length === 0 }">
+  <div
+    class="flex items-center justify-center rounded-full"
+    [ngClass]="{
+      'w-8': size === 'small',
+      'w-10': size === 'normal',
+      'w-14': size === 'large',
+      'h-8': url.length === 0 && size === 'small',
+      'h-10': url.length === 0 && size === 'normal',
+      'h-14': url.length === 0 && size === 'large',
+      'bg-secondary': url.length === 0 ,
+    }"
+  >
+    @if (url.length > 0) {
+    <img alt="Tailwind CSS chat bubble component" [src]="url" />
+    } @else {
+    <span
+      class="text-white font-semibold"
+      [ngClass]="{
+      'text-xs': size === 'small',
+      'text-sm': size === 'normal',
+      'text-base': size === 'large',
+    }"
+      >{{ name | splitNameAvatar }}</span
+    >
+    }
+  </div>
+</div>

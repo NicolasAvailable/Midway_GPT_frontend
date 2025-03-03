@@ -1,0 +1,33 @@
+<div class="profile__container flex items-center gap-2 h-20 w-full px-5">
+  <div>
+    <mw-avatar class="flex" name="Nicolas Soto"></mw-avatar>
+  </div>
+  <div
+    class="profile__content flex flex-col items-center justify-center w-full h-full overflow-hidden"
+  >
+    <div class="truncate w-full text-base/5">Nicolas Soto</div>
+    <div class="truncate w-full text-sm opacity-50">Creditos: 100</div>
+  </div>
+  <div
+    class="profile__options rounded-full py-1.5 px-2.5 cursor-pointer"
+    [matMenuTriggerFor]="menu"
+    [matMenuTriggerData]="{ id: 1, name: '' }"
+  >
+    <i class="fa-solid fa-ellipsis text-primary"></i>
+  </div>
+</div>
+
+<mat-menu #menu="matMenu" xPosition="after" yPosition="below">
+  <ng-template matMenuContent let-id="id" let-name="name">
+    <div class="flex flex-col">
+      <div class="flex gap-2 items-center p-2 cursor-pointer hover:bg-gray-200">
+        <i
+          class="fa-solid fa-arrow-right-from-bracket text-sm text-primary"
+        ></i>
+        <button class="truncate text-sm font-medium text-gray-700">
+          Cerrar sesión
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</mat-menu>

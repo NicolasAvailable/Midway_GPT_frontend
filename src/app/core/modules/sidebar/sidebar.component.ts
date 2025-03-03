@@ -8,6 +8,7 @@ import { MwInputErrorDirective } from '../../../@midway-UI/global/input/mw-input
 import { MwInputInvalidDirective } from '../../../@midway-UI/global/input/mw-input-invalid.directive';
 import { MwInputDirective } from '../../../@midway-UI/global/input/mw-input.directive';
 import { MaterialModule } from '../../../shared/modules/material.module';
+import { ProfilePreviewerComponent } from '../profile/views/profile-previewer/profile-previewer.component';
 import { AutoFocusDirective } from '../room/data/directives/auto-focus.directive';
 import { RoomId } from '../room/data/interfaces/room-response.interfaces';
 import { Room } from '../room/data/models/room.models';
@@ -29,6 +30,7 @@ import {
     RouterLink,
     RouterLinkActive,
     MaterialModule,
+    ProfilePreviewerComponent,
     MwInputErrorDirective,
     MwInputDirective,
     MwInputInvalidDirective,

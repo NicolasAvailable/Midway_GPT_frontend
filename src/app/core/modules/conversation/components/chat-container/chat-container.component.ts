@@ -2,6 +2,7 @@ import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs';
+import { AvatarComponent } from '../../../../../@midway-UI/global/avatar/avatar.component';
 import { ClickOutsideDirective } from '../../../../../shared/directives/click-outside.directive';
 import { Room } from '../../../room/data/models/room.models';
 import { RoomService } from '../../../room/data/services/room.service';
@@ -14,6 +15,7 @@ import { ChatSenderComponent } from '../chat-sender/chat-sender.component';
   standalone: true,
   imports: [
     NgClass,
+    AvatarComponent,
     ChatHeaderComponent,
     ChatDetailerComponent,
     ChatSenderComponent,

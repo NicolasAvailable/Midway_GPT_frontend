@@ -14,12 +14,10 @@
         @for (item of [1,2,3,4,5,6,7,8,8,88]; track $index) {
         <div class="chat chat-start">
           <div class="chat-image avatar">
-            <div class="w-8 rounded-full">
-              <img
-                alt="Tailwind CSS chat bubble component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-              />
-            </div>
+            <mw-avatar
+              size="small"
+              url="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+            ></mw-avatar>
           </div>
           <div class="chat-bubble min-h-3">
             <p class="text-sm">You were the Chosen One!</p>
@@ -30,12 +28,7 @@
         </div>
         <div class="chat chat-end">
           <div class="chat-image avatar">
-            <div class="w-8 rounded-full">
-              <img
-                alt="Tailwind CSS chat bubble component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-              />
-            </div>
+            <mw-avatar size="small" name="Nicolas Soto"></mw-avatar>
           </div>
           <div class="chat-bubble min-h-3">
             <p class="text-sm">I hate you!</p>
