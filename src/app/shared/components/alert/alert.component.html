@@ -13,14 +13,14 @@
     <div class="flex gap-2 h-full">
       <mw-button
         class="w-full"
-        text="Cancelar"
         color="secondary"
+        [text]="cancelText"
         (click)="cancel.emit()"
       ></mw-button>
       <mw-button
         class="w-full"
-        text="Aceptar"
         color="primary"
+        [text]="confirmText"
         (click)="confirm.emit()"
       ></mw-button>
     </div>

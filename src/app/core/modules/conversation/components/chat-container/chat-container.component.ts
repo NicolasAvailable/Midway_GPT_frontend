@@ -1,9 +1,11 @@
 import { NgClass } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, WritableSignal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { AvatarComponent } from '../../../../../@midway-UI/global/avatar/avatar.component';
 import { ClickOutsideDirective } from '../../../../../shared/directives/click-outside.directive';
+import { Profile } from '../../../profile/data/models/profile.models';
+import { ProfileStore } from '../../../profile/data/store/profile.store';
 import { Room } from '../../../room/data/models/room.models';
 import { RoomService } from '../../../room/data/services/room.service';
 import { ChatDetailerComponent } from '../chat-detailer/chat-detailer.component';
@@ -27,9 +29,11 @@ import { ChatSenderComponent } from '../chat-sender/chat-sender.component';
 export class ChatContainerComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private roomService = inject(RoomService);
+  private profileStore = inject(ProfileStore);
 
   protected room: Room = null;
   protected isOpenDetails: boolean = false;
+  protected profile: WritableSignal<Profile> = this.profileStore.get().profile;
 
   constructor() {
     this.route.params

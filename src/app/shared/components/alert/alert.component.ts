@@ -18,6 +18,8 @@ import { ButtonComponent } from '../../../@midway-UI/global/button/button.compon
 export class AlertComponent {
   @Input() title: string = '¿Estas seguro de eliminar este asistente?';
   @Input() message: string = 'Este elemento se eliminará permanentemente';
+  @Input() cancelText: string = 'Cancelar';
+  @Input() confirmText: string = 'Aceptar';
 
   @Output() cancel = new EventEmitter();
   @Output() confirm = new EventEmitter();

@@ -1,0 +1,7 @@
+<mw-alert
+  [title]="'¿Estas seguro que deseas cerrar sesión?'"
+  message="Si cierras sesión, serás redirigido a la página de inicio y deberás ingresar con tus credenciales para volver acceder a tu cuenta."
+  confirmText="Cerrar sesión"
+  (cancel)="dialogRef.close()"
+  (confirm)="profileService.logOut(); dialogRef.close()"
+></mw-alert>

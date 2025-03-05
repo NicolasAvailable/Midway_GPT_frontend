@@ -2,11 +2,13 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoreComponent } from './core.component';
+import { profileResolver } from './modules/profile/data/resolvers/profile.resolver';
 
 const routes: Routes = [
   {
     path: '',
     component: CoreComponent,
+    resolve: [profileResolver],
     children: [
       {
         path: '',
