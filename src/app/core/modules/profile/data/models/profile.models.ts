@@ -5,3 +5,5 @@ export class Profile {
     public picture: string
   ) {}
 }
+
+export type UserId = string;

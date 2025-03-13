@@ -10,8 +10,10 @@
     <div
       class="flex flex-col overflow-auto justify-center items-center w-full h-full"
     >
+      @if (messageList) {
       <div class="flex flex-col w-1/2 h-full p-2">
-        @for (item of [1,2,3,4,5,6,7,8,8,88]; track $index) {
+        @for (message of messageList.values; track $index) { @if (message.role
+        === 'assistant') {
         <div class="chat chat-start">
           <div class="chat-image avatar">
             <mw-avatar
@@ -20,25 +22,27 @@
             ></mw-avatar>
           </div>
           <div class="chat-bubble min-h-3">
-            <p class="text-sm">You were the Chosen One!</p>
+            <p class="text-sm" [innerHTML]="message.content"></p>
           </div>
           <div class="chat-footer opacity-50">
             <time class="text-xs opacity-50">12:45</time>
           </div>
         </div>
+        } @else {
         <div class="chat chat-end">
           <div class="chat-image avatar">
             <mw-avatar size="small" [name]="profile().name"></mw-avatar>
           </div>
           <div class="chat-bubble min-h-3">
-            <p class="text-sm">I hate you!</p>
+            <p class="text-sm" [innerHTML]="message.content"></p>
           </div>
           <div class="chat-footer opacity-50">
             <time class="text-xs opacity-50">12:46</time>
           </div>
         </div>
-        }
+        } }
       </div>
+      }
     </div>
     <div class="chat__footer">
       <mw-chat-sender></mw-chat-sender>
