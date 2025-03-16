@@ -8,8 +8,8 @@ import { Profile } from '../../../profile/data/models/profile.models';
 import { ProfileStore } from '../../../profile/data/store/profile.store';
 import { Room } from '../../../room/data/models/room.models';
 import { RoomService } from '../../../room/data/services/room.service';
-import { MessageList } from '../../data/models/message-list.models';
 import { MessageService } from '../../data/services/message.service';
+import { MessageStore } from '../../data/store/message.store';
 import { ChatDetailerComponent } from '../chat-detailer/chat-detailer.component';
 import { ChatHeaderComponent } from '../chat-header/chat-header.component';
 import { ChatSenderComponent } from '../chat-sender/chat-sender.component';
@@ -31,11 +31,11 @@ import { ChatSenderComponent } from '../chat-sender/chat-sender.component';
 export class ChatContainerComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private roomService = inject(RoomService);
-  private messageService = inject(MessageService);
   private profileStore = inject(ProfileStore);
+  private messageService = inject(MessageService);
+  protected messageStore = inject(MessageStore);
 
   protected room: Room = null;
-  protected messageList: MessageList = null;
   protected isOpenDetails: boolean = false;
   protected profile: WritableSignal<Profile> = this.profileStore.get().profile;
 
@@ -44,11 +44,17 @@ export class ChatContainerComponent implements OnInit {
       .pipe(
         switchMap((params) => this.roomService.getOne(params['id'])),
         tap({
-          next: (room) => (this.room = room),
+          next: (room) => {
+            this.room = room;
+            this.messageStore.get().isLoading.set(true);
+          },
         }),
         switchMap((room) => this.messageService.get(room.id))
       )
-      .subscribe((messageList) => (this.messageList = messageList));
+      .subscribe((messageList) => {
+        this.messageStore.get().messageList.set(messageList);
+        this.messageStore.get().isLoading.set(false);
+      });
   }
 
   ngOnInit() {}

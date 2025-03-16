@@ -11,9 +11,10 @@ export class MessageGetterResponseToMessageListMapper {
       this.messages.map(
         (message) =>
           new Message(
+            message._id,
             message.role,
             new MessageSpecialCharactersMappers(message.message).map(),
-            ''
+            message.createdAt
           )
       )
     );
