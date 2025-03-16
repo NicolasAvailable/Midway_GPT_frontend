@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { eventBus } from '../../../../../shared/base/event-bus.base';
 import { RoomId } from '../../../room/data/interfaces/room-response.interfaces';
 import { MessageSenderBody } from '../interfaces/message-sender-body.interfaces';
 import { Message } from '../models/message.models';
@@ -20,6 +21,7 @@ export class MessageService {
   }
 
   public send(body: MessageSenderBody) {
+    eventBus.emit('new.message');
     this.messageStore.get().messageList.update((list) => {
       list.add(new Message('', 'user', body.prompt));
       return list;
@@ -28,6 +30,7 @@ export class MessageService {
     return messageSender.execute(body).subscribe((message) =>
       this.messageStore.get().messageList.update((list) => {
         list.add(message);
+        eventBus.emit('new.message');
         return list;
       })
     );

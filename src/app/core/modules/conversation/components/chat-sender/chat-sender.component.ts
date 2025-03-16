@@ -38,5 +38,6 @@ export class ChatSenderComponent {
       model: 'gpt-4o',
       prompt: message,
     });
+    this.form.reset();
   }
 }

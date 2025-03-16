@@ -12,6 +12,10 @@
   width: 25vw;
 }
 
+.chat__content {
+  scroll-behavior: smooth;
+}
+
 ::ng-deep .chat-start .chat-bubble {
   background-color: var(--color-gray-stroke);
   color: black;

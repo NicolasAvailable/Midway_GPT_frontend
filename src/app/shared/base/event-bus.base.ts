@@ -1,6 +1,6 @@
-import { ReplaySubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
-export class EventBus {
+class EventBus {
   private events = new Map<string, Subject<any>>();
   private static instance: EventBus;
 
@@ -13,15 +13,17 @@ export class EventBus {
 
   public emit(event: string, value?: any) {
     if (!this.events.has(event)) {
-      this.events.set(event, new ReplaySubject(value));
+      this.events.set(event, new BehaviorSubject(value));
     }
     this.events.get(event)!.next(value);
   }
 
   public on(event: string): Observable<any> {
     if (!this.events.has(event)) {
-      this.events.set(event, new ReplaySubject());
+      this.events.set(event, new BehaviorSubject(null));
     }
     return this.events.get(event)!.asObservable();
   }
 }
+
+export const eventBus = EventBus.getInstance();
