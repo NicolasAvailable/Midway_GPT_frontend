@@ -1,0 +1,41 @@
+<div class="flex flex-col justify-center items-center gap-2 h-full w-full">
+  <div class="forgotten__description">
+    <p>
+      Ingresa tu correo y te enviaremos un enlace para restablecer tu contraseña
+    </p>
+  </div>
+  <div class="forgotten__inputs__box w-full">
+    <form class="forgotten__form__content w-full" [formGroup]="form">
+      <div class="forgotten__input__email input__box w-full">
+        <div class="forgotten__input__box">
+          <label class="input__label text-base" for="email"> Email </label>
+          <span
+            class="input__required"
+            mwInputError
+            [ensureTouched]="false"
+            [error]="form.get('email')"
+            >{{ form.get("email").errors | emailErrorSetter }}</span
+          >
+        </div>
+        <input
+          id="email"
+          class=""
+          type="text"
+          formControlName="email"
+          mwInput
+          mwInputInvalid
+          [error]="form.get('email')"
+          (keyup.enter)="send()"
+        />
+      </div>
+    </form>
+  </div>
+  <div class="forgotten__button__box w-full">
+    <mw-button
+      text="Enviar"
+      [isDisabled]="form.invalid || isLoading"
+      [isLoading]="isLoading"
+      (click)="send()"
+    ></mw-button>
+  </div>
+</div>

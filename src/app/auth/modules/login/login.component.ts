@@ -13,6 +13,7 @@ import { LoginBodyAdapter } from './data/models/login-body-adapter.models';
 export class LoginComponent implements OnInit {
   protected form!: FormGroup;
   protected showPassword: boolean = false;
+  protected isLoading: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -40,7 +41,8 @@ export class LoginComponent implements OnInit {
 
   public send() {
     if (this.form.invalid) return;
+    this.isLoading = true;
     const body = new LoginBodyAdapter(this.form).adapt();
-    this.authService.login(body);
+    this.authService.login(body, () => (this.isLoading = false));
   }
 }

@@ -26,6 +26,8 @@ export class MwInputErrorDirective {
 
   constructor(private elementRef: ElementRef<HTMLElement>) {
     this.elementRef.nativeElement.classList.add('mw__input__span__error');
-    this.elementRef.nativeElement.classList.add('text-sm');
+    this.elementRef.nativeElement.classList.add('w-full');
+    this.elementRef.nativeElement.classList.add('text-right');
+    this.elementRef.nativeElement.classList.add('text-xs');
   }
 }

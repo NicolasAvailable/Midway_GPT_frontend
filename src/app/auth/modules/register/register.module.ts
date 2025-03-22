@@ -6,6 +6,7 @@ import { ButtonComponent } from '../../../@midway-UI/global/button/button.compon
 import { MwInputContainerDirective } from '../../../@midway-UI/global/input/mw-input-container.directive';
 import { MwInputErrorDirective } from '../../../@midway-UI/global/input/mw-input-error.directive';
 import { MwInputInvalidDirective } from '../../../@midway-UI/global/input/mw-input-invalid.directive';
+import { MwInputDirective } from '../../../@midway-UI/global/input/mw-input.directive';
 import { AuthBackgroundComponent } from '../shared/components/auth-background/auth-background.component';
 import { ShowPasswordDirective } from '../shared/data/directives/show-password.directive';
 import { ConfirmPasswordErrorSetterPipe } from '../shared/data/pipes/confirm-password-error-setter.pipe';
@@ -23,6 +24,7 @@ const router: Routes = [{ path: '', component: RegisterComponent }];
     ReactiveFormsModule,
     AuthBackgroundComponent,
     ButtonComponent,
+    MwInputDirective,
     MwInputContainerDirective,
     MwInputErrorDirective,
     MwInputInvalidDirective,

@@ -60,7 +60,8 @@
   border-color: var(--color-primary);
 }
 
-.mw__input::placeholder {
+.mw__input::placeholder,
+.mw__input--primary::placeholder {
   font-weight: 400 !important;
   color: #909090 !important;
 }

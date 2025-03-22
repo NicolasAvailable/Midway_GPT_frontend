@@ -6,5 +6,9 @@
     'mw__button--secondary': color === 'secondary',
    }"
 >
+  @if (isLoading) {
+  <span class="loading loading-spinner loading-md"></span>
+  } @else {
   {{ text }}
+  }
 </button>

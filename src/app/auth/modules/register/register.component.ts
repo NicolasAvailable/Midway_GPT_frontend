@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../data/services/auth.service';
 import { EMAIL_REGEX } from '../login/data/constants/email-pattern.constants';
@@ -12,14 +12,12 @@ import { RegisterBodyAdapter } from './data/models/register-body-adapter.models'
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+  private formBuilder = inject(FormBuilder);
+  private authService = inject(AuthService);
   protected form!: FormGroup;
   protected showPassword: boolean = false;
   protected showConfirmPassword: boolean = false;
-
-  constructor(
-    private formBuilder: FormBuilder,
-    private authService: AuthService
-  ) {}
+  protected isLoading: boolean = false;
 
   ngOnInit() {
     this.setup();
@@ -48,6 +46,6 @@ export class RegisterComponent implements OnInit {
   public send() {
     if (this.form.invalid) return;
     const body = new RegisterBodyAdapter(this.form).adapt();
-    this.authService.register(body);
+    this.authService.register(body, () => (this.isLoading = false));
   }
 }

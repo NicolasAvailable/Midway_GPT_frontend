@@ -18,11 +18,12 @@
             </span>
           </div>
           <input
+            mwInput
+            mwInputInvalid
             id="name"
             class="input__style"
             type="text"
             formControlName="name"
-            mwInputInvalid
             [error]="form.get('name')"
           />
         </div>
@@ -40,11 +41,12 @@
             </span>
           </div>
           <input
+            mwInput
+            mwInputInvalid
             id="email"
             class="input__style"
             type="text"
             formControlName="email"
-            mwInputInvalid
             [error]="form.get('email')"
           />
         </div>
@@ -65,11 +67,12 @@
           </div>
           <div class="input__password">
             <input
+              mwInput
+              mwInputInvalid
               class="input__style password__input"
               type="password"
               id="password"
               onShowPassword
-              mwInputInvalid
               formControlName="password"
               [showPassword]="showPassword"
               [error]="form.get('password')"
@@ -108,11 +111,12 @@
           </div>
           <div class="input__password">
             <input
+              mwInput
+              mwInputInvalid
               class="input__style password__input"
               type="password"
               id="confirm__password"
               onShowPassword
-              mwInputInvalid
               formControlName="confirmPassword"
               [showPassword]="showConfirmPassword"
               [error]="form.get('confirmPassword')"
@@ -130,7 +134,8 @@
     <div class="register__button__box">
       <mw-button
         text="Regístrarse"
-        [isDisabled]="form.invalid"
+        [isDisabled]="form.invalid || isLoading"
+        [isLoading]="isLoading"
         (click)="send()"
       ></mw-button>
     </div>

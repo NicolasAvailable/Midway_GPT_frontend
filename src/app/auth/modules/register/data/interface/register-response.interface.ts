@@ -1,10 +1,10 @@
 export interface RegisterResponse {
   statusCode: number;
   message: string;
-  data: Data;
+  data: RegisterData;
 }
 
-export interface Data {
+export interface RegisterData {
   token_type: string;
   access_token: string;
   user: RegisteredUser;

@@ -76,7 +76,8 @@
     <div class="login__button__box">
       <mw-button
         text="Iniciar sesión"
-        [isDisabled]="form.invalid"
+        [isDisabled]="form.invalid || isLoading"
+        [isLoading]="isLoading"
         (click)="send()"
       ></mw-button>
     </div>

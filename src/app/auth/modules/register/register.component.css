@@ -55,27 +55,6 @@ input::-webkit-input-placeholder {
   gap: 5px;
 }
 
-.input__style {
-  height: 36px;
-  width: 100%;
-  border: 2px solid var(--color-main);
-  border-radius: 5px;
-  background-color: white;
-  padding-left: 0.4vw;
-  padding-right: 0.4vw;
-  padding-top: 0.2vw;
-  padding-bottom: 0.2vw;
-  font-size: 14px;
-}
-
-.input__style:focus {
-  outline: none;
-}
-
-.input__style::placeholder {
-  background-color: white;
-}
-
 .register__oauth__box {
   display: flex;
   flex-direction: column;

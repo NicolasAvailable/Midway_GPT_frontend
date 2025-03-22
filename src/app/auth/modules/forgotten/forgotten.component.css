@@ -1,0 +1,23 @@
+.forgotten__content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 583.15px;
+  padding: 30px;
+  border-radius: 9px;
+  background-color: white;
+}
+
+.forgotten__height {
+  height: 405px;
+}
+
+.forgotten__form__content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.line {
+  color: var(--color-black);
+}

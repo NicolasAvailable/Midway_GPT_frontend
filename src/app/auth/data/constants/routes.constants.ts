@@ -25,10 +25,11 @@ export const routes: Routes = [
       },
       {
         path: 'forgotten',
-        loadChildren: () =>
-          import('../../modules/forgotten/forgotten.module').then(
-            (m) => m.ForgottenModule
-          ),
+        loadComponent() {
+          return import('../../modules/forgotten/forgotten.component').then(
+            (m) => m.ForgottenComponent
+          );
+        },
       },
     ],
   },

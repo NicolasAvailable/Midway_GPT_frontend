@@ -12,7 +12,7 @@ export class ErrorSetterPipe implements PipeTransform {
       const keys = Object.keys(errors);
       return this.errors.get(keys[0]);
     } else {
-      return '';
+      return 'no error';
     }
   }
 }
