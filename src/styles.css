@@ -21,7 +21,7 @@
 body {
   background-color: white;
   color: black;
-  font-family: sans-serif;
+  font-family: "Hind Madurai", sans-serif;
 }
 
 mw-home {
@@ -44,7 +44,7 @@ mw-home {
 
 ::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 4px; /* Bordes redondeados */
+  border-radius: 4px;
   border: 2px solid transparent;
   background-clip: content-box;
 }
