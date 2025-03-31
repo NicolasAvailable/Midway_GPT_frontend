@@ -22,7 +22,10 @@
               url="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
             ></mw-avatar>
           </div>
-          <div class="chat-bubble min-h-3">
+          <div
+            class="chat-bubble min-h-3"
+            [ngClass]="{ 'chat__bubble--error': message.hasError }"
+          >
             <p class="text-sm" [innerHTML]="message.content"></p>
           </div>
           <div class="chat-footer opacity-50">

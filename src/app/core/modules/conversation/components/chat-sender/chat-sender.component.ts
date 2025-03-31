@@ -30,7 +30,6 @@ export class ChatSenderComponent {
   });
 
   public send() {
-    console.log(this.form.invalid);
     if (this.form.invalid) return;
     const message = this.form.get('message')?.value.trim();
     this.messageService.send({

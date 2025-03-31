@@ -3,6 +3,7 @@ export class Message {
     public id: string = '',
     public role: string = '',
     public content: string = '',
-    public createdAt: Date = new Date()
+    public createdAt: Date = new Date(),
+    public hasError: boolean = false,
   ) {}
 }

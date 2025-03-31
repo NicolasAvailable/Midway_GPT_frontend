@@ -16,6 +16,15 @@
   scroll-behavior: smooth;
 }
 
+.chat__bubble--error {
+  background-color: hsl(359, 100%, 97%) !important;
+  color: hsl(360, 100%, 45%) !important;
+}
+
+.chat__bubble--error::before {
+  background-color: hsl(359, 100%, 97%) !important;
+}
+
 ::ng-deep .chat-start .chat-bubble {
   background-color: var(--color-gray-stroke);
   color: black;
