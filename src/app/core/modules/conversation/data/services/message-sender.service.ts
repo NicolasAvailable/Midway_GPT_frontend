@@ -21,8 +21,9 @@ export class MessageSenderService {
       ),
       catchError((error: HttpErrorResponse) => {
         const errorMessage = error.error.message;
+        const entity = new MessageSenderErrorToMessageEntityAdapter(errorMessage).adapt()
         const message = new MessageActionResponseToMessageMapper(
-          new MessageSenderErrorToMessageEntityAdapter(errorMessage).adapt(),
+          entity,
           true
         ).map();
         return of(message);
