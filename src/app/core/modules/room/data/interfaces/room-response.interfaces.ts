@@ -6,6 +6,7 @@ export interface RoomResponse {
 
 export interface RoomEntity {
   _id: string;
+  image: string;
   userId: string;
   name: string;
   description: string;

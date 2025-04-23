@@ -1,0 +1,27 @@
+<div
+  class="carousel w-2/5 rounded-full"
+  (keydown.enter)="$event.preventDefault()"
+>
+  <div id="slide4" class="carousel-item relative w-full">
+    <img [src]="images[currentIndex]" class="w-full" />
+
+    <div
+      class="absolute h-4/5 left-0 right-0 top-1/2 flex -translate-y-1/2 transform justify-between items-center"
+    >
+      <button
+        class="rounded-full px-3 cursor-pointer h-full"
+        type="button"
+        (click)="previous()"
+      >
+        ❮
+      </button>
+      <button
+        class="rounded-full px-3 cursor-pointer h-full"
+        type="button"
+        (click)="next()"
+      >
+        ❯
+      </button>
+    </div>
+  </div>
+</div>

@@ -17,10 +17,7 @@
         $index) { @if (message.role === 'assistant') {
         <div class="chat chat-start">
           <div class="chat-image avatar">
-            <mw-avatar
-              size="small"
-              url="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-            ></mw-avatar>
+            <mw-avatar size="small" [url]="room.image"></mw-avatar>
           </div>
           <div
             class="chat-bubble min-h-3"

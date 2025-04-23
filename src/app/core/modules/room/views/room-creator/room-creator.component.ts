@@ -13,6 +13,7 @@ import { MwInputErrorDirective } from '../../../../../@midway-UI/global/input/mw
 import { MwInputInvalidDirective } from '../../../../../@midway-UI/global/input/mw-input-invalid.directive';
 import { MwInputDirective } from '../../../../../@midway-UI/global/input/mw-input.directive';
 import { MaterialModule } from '../../../../../shared/modules/material.module';
+import { ProfileCarouselComponent } from '../../components/profile-carousel/profile-carousel.component';
 import { RoomBody } from '../../data/interfaces/room-body.interfaces';
 import { Room } from '../../data/models/room.models';
 import { DescriptionErrorSetterPipe } from '../../data/pipes/description-error-setter.pipe';
@@ -32,6 +33,7 @@ import {
     ReactiveFormsModule,
     MaterialModule,
     ButtonComponent,
+    ProfileCarouselComponent,
     MwInputDirective,
     MwInputErrorDirective,
     MwInputInvalidDirective,
@@ -54,6 +56,7 @@ export class RoomCreatorComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
+      image: ['', [Validators.required]],
       name: [
         '',
         [
@@ -71,9 +74,10 @@ export class RoomCreatorComponent implements OnInit {
 
   public create() {
     if (this.form.invalid) return;
+    const image = this.form.get('image').value;
     const name = this.form.get('name').value.trim();
     const description = this.form.get('description').value.trim();
-    const body: RoomBody = { name, description };
+    const body: RoomBody = { image, name, description };
     this.roomService.create(body).subscribe((room) => this.success(room));
   }
 
