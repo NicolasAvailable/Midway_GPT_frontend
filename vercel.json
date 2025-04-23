@@ -1,0 +1,17 @@
+{
+    "builds": [
+        {
+            "src": "angular.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dist/midway_gpt_frontend"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/index.html"
+        }
+    ]
+}
