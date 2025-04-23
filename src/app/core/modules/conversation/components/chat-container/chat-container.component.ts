@@ -1,8 +1,8 @@
 import { NgClass } from '@angular/common';
 import { Component, inject, WritableSignal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AvatarComponent } from '@midway-UI/global/avatar/avatar.component';
 import { switchMap, tap } from 'rxjs';
-import { AvatarComponent } from '../../../../../@midway-UI/global/avatar/avatar.component';
 import { ClickOutsideDirective } from '../../../../../shared/directives/click-outside.directive';
 import { Profile } from '../../../profile/data/models/profile.models';
 import { ProfileStore } from '../../../profile/data/store/profile.store';

@@ -1,6 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MwInputDirective } from '../../../../../@midway-UI/global/input/mw-input.directive';
+import { MwInputDirective } from '@midway-UI/global/input/mw-input.directive';
 import { noWhitespaceValidator } from '../../../../../auth/modules/shared/data/validators/white-space.validators';
 import { MaterialModule } from '../../../../../shared/modules/material.module';
 import { RoomId } from '../../../room/data/interfaces/room-response.interfaces';

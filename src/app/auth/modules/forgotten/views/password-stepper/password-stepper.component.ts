@@ -6,12 +6,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ButtonComponent } from '@midway-UI/global/button/button.component';
+import { MwInputErrorDirective } from '@midway-UI/global/input/mw-input-error.directive';
+import { MwInputInvalidDirective } from '@midway-UI/global/input/mw-input-invalid.directive';
+import { MwInputDirective } from '@midway-UI/global/input/mw-input.directive';
 import { toast } from 'ngx-sonner';
 import { finalize } from 'rxjs';
-import { ButtonComponent } from '../../../../../@midway-UI/global/button/button.component';
-import { MwInputErrorDirective } from '../../../../../@midway-UI/global/input/mw-input-error.directive';
-import { MwInputInvalidDirective } from '../../../../../@midway-UI/global/input/mw-input-invalid.directive';
-import { MwInputDirective } from '../../../../../@midway-UI/global/input/mw-input.directive';
 import { UserId } from '../../../../../core/modules/profile/data/models/profile.models';
 import { ShowPasswordDirective } from '../../../shared/data/directives/show-password.directive';
 import { ConfirmPasswordErrorSetterPipe } from '../../../shared/data/pipes/confirm-password-error-setter.pipe';
