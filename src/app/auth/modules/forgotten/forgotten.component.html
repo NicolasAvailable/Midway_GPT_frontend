@@ -11,7 +11,7 @@
         <img src="assets/img/logo-midway.svg" />
       </div>
       <div
-        class="flex flex-col justify-center items-center gap-2 h-full w-2/3 pt-2 pb-2"
+        class="forgotten__inputs__box flex flex-col justify-center items-center gap-2 h-full w-2/3 pt-2 pb-2"
       >
         @switch (forgotStepper.step) { @case (steps.EMAIL) {
         <mw-email-stepper class="w-full h-full"></mw-email-stepper>
@@ -23,17 +23,19 @@
         ></mw-password-stepper>
         } }
       </div>
-      <div class="flex flex-col justify-start items-start w-2/3">
+      <div
+        class="forgotten__inputs__box forgotten__links flex flex-col justify-start items-start w-2/3"
+      >
         <div class="line w-full mt-1 mb-3">
           <hr class="flex-grow" />
         </div>
-        <p>
+        <p class="forgotten__link__text">
           ¿Ya tienes una cuenta?
           <a class="text-primary" [routerLink]="['../login']"
             >Inicia sesión aquí</a
           >
         </p>
-        <p>
+        <p class="forgotten__link__text">
           ¿No tienes una cuenta aún?
           <a class="text-primary" [routerLink]="['../register']"
             >Regístrate aquí</a

@@ -21,3 +21,21 @@
 .line {
   color: var(--color-black);
 }
+
+@media (max-width: 650px) {
+  .forgotten__content {
+    width: 90%;
+  }
+
+  .forgotten__inputs__box {
+    width: 100%;
+  }
+
+  .forgotten__link__text,
+  .forgotten__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
