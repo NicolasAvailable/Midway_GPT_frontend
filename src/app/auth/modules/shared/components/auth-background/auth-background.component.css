@@ -34,3 +34,20 @@ input::-webkit-input-placeholder {
   justify-content: center;
   align-items: center;
 }
+
+@media (min-width: 700px) and (max-width: 1300px) {
+  .auth__right__content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .auth__left__content {
+    display: none;
+  }
+
+  .auth__container {
+    justify-content: center;
+    align-items: center;
+  }
+}

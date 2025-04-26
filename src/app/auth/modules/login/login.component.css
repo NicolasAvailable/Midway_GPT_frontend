@@ -59,27 +59,6 @@ input::-webkit-input-placeholder {
   justify-content: space-between;
 }
 
-.input__style {
-  height: 36px;
-  width: 100%;
-  border: 2px solid var(--color-main);
-  border-radius: 5px;
-  background-color: white;
-  padding-left: 0.4vw;
-  padding-right: 0.4vw;
-  padding-top: 0.2vw;
-  padding-bottom: 0.2vw;
-  font-size: 14px;
-}
-
-.input__style:focus {
-  outline: none;
-}
-
-.input__style::placeholder {
-  background-color: white;
-}
-
 .login__oauth__box {
   display: flex;
   flex-direction: column;
@@ -141,4 +120,23 @@ input::-webkit-input-placeholder {
 
 .login__register {
   color: var(--color-main);
+}
+
+@media (min-width: 700px) and (max-width: 1300px) {
+  .login__content {
+    width: 70%;
+  }
+}
+
+@media (max-width: 700px) {
+  .login__content {
+    width: 100%;
+  }
+
+  .login__register__box__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

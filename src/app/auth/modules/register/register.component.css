@@ -128,3 +128,22 @@ input::-webkit-input-placeholder {
   -webkit-line-clamp: 1; */
   overflow: hidden;
 }
+
+@media (min-width: 700px) and (max-width: 1300px) {
+  .register__content {
+    width: 70%;
+  }
+}
+
+@media (max-width: 700px) {
+  .register__content {
+    width: 100%;
+  }
+
+  .register__login__box__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

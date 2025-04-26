@@ -5,6 +5,9 @@
     </div>
     <div class="register__inputs__box">
       <form class="register__form__content" [formGroup]="form">
+        <p class="text-base font-medium">
+          ¡Crea una cuenta para empezar tu aventura!
+        </p>
         <div class="register__input__email input__box">
           <div class="register__input__box">
             <label class="input__label text-sm" for="name"> Nombre </label>
@@ -140,7 +143,7 @@
       ></mw-button>
     </div>
     <div class="register__register__box">
-      <p>
+      <p class="register__login__box__text">
         ¿Ya tienes una cuenta?
         <a class="register__register" [routerLink]="['../login']"
           >Inicia sesión aquí</a
