@@ -9,3 +9,13 @@
 .alert__header {
   background-color: var(--color-hover-light);
 }
+
+@media (max-width: 700px) {
+  .alert__container {
+    width: 80vw;
+  }
+
+  .alert__buttons__box {
+    flex-direction: column;
+  }
+}
