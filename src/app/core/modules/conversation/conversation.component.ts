@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'mw-conversation',
   templateUrl: './conversation.component.html',
   styleUrls: ['./conversation.component.css'],
 })
-export class ConversationComponent implements OnInit {
-  constructor() {}
+export class ConversationComponent {
+  protected sidebarOpen = false;
 
-  ngOnInit() {}
+  protected toggleSidebar() {
+    this.sidebarOpen = !this.sidebarOpen;
+  }
 }

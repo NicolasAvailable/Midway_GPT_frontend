@@ -31,3 +31,9 @@
 .room__input {
   background: transparent !important;
 }
+
+@media (max-width: 700px) {
+  .sidebar__container {
+    padding: 6% 0% 0% 0%;
+  }
+}

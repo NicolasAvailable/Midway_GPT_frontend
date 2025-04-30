@@ -1,8 +1,27 @@
-<section class="home__container">
-  <div class="sidebar__content h-screen">
+<section class="home__container relative">
+  <button
+    class="hamburger__button absolute top-4 left-4 z-30"
+    (click)="toggleSidebar()"
+  >
+    <i class="fa-solid fa-bars text-2xl"></i>
+  </button>
+
+  @if (sidebarOpen) {
+  <div
+    class="overlay"
+    [class.overlay-visible]="sidebarOpen"
+    (click)="sidebarOpen = false"
+  ></div>
+  }
+
+  <div
+    class="sidebar__content h-screen fixed inset-y-0 left-0 z-20 bg-white shadow-lg transform transition-transform duration-300"
+    [class.sidebar-hidden]="!sidebarOpen"
+  >
     <mw-sidebar class="w-full h-full"></mw-sidebar>
   </div>
-  <div class="main__content h-screen">
+
+  <div class="main__content h-screen flex-1 ml-0">
     <router-outlet></router-outlet>
   </div>
 </section>
