@@ -11,7 +11,7 @@ import { MessageGetterResponseToMessageListMapper } from '../models/mappers/mess
   providedIn: 'root',
 })
 export class MessageGetterService {
-  private API = API.url_develop;
+  private API = API.url;
 
   constructor(private http: HttpClient) {}
 

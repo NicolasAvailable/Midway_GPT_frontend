@@ -19,7 +19,7 @@ export class RoomCreatorService {
   public execute(body: RoomBody): Observable<Room> {
     toast.loading('Cargando...');
     return this.http
-      .post<RoomActionResponse>(`${this.API.url_develop}/room`, body)
+      .post<RoomActionResponse>(`${this.API.url}/room`, body)
       .pipe(
         catchError(() => {
           this.exceptionRoomCreator.throw();

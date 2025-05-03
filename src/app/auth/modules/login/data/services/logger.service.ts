@@ -13,7 +13,7 @@ import { LoginExceptions } from './exceptions/login.exceptions';
   providedIn: 'root',
 })
 export class LoggerService {
-  private URL = API.url_develop;
+  private URL = API.url;
 
   constructor(
     private http: HttpClient,

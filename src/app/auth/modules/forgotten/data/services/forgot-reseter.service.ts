@@ -17,7 +17,7 @@ export class ForgotReseterService {
 
   public execute(userId: UserId, password: string) {
     const body = new ForgotBodyAdapter(userId, password).adapt();
-    const url = `${API.url_develop}/auth/local/reset-password`;
+    const url = `${API.url}/auth/local/reset-password`;
     return this.http.post(url, body).pipe(
       catchError((error) => {
         this.exceptionService.throw(error.status);

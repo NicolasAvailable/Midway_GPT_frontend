@@ -20,7 +20,7 @@ export class RegisterService {
   ) {}
 
   public execute(body: RegisterBody): Observable<RegisterData> {
-    const url = `${this.API.url_develop}/auth/local/register`;
+    const url = `${this.API.url}/auth/local/register`;
     return this.http.post<RegisterResponse>(url, body).pipe(
       map((response) => response.data),
       catchError((error) => {

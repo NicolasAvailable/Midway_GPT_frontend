@@ -14,21 +14,19 @@ export class ProfileGetterService {
 
   public execute(): Observable<Boolean> {
     this.profileStore.get().isLoading.set(true);
-    return this.http
-      .get<RoomActionResponse>(`${this.API.url_develop}/profile`)
-      .pipe(
-        map((resp) => resp.data),
-        map((profileEntity) => new ProfileMapper(profileEntity).map()),
-        map((profile) => {
-          this.profileStore.get().isLoading.set(false);
-          this.profileStore.update({ profile: signal(profile) });
-          return profile ? true : false;
-        }),
-        catchError(() => {
-          this.profileStore.get().isLoading.set(false);
-          this.profileStore.update({ profile: null });
-          return of(false);
-        })
-      );
+    return this.http.get<RoomActionResponse>(`${this.API.url}/profile`).pipe(
+      map((resp) => resp.data),
+      map((profileEntity) => new ProfileMapper(profileEntity).map()),
+      map((profile) => {
+        this.profileStore.get().isLoading.set(false);
+        this.profileStore.update({ profile: signal(profile) });
+        return profile ? true : false;
+      }),
+      catchError(() => {
+        this.profileStore.get().isLoading.set(false);
+        this.profileStore.update({ profile: null });
+        return of(false);
+      })
+    );
   }
 }

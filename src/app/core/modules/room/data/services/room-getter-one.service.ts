@@ -13,7 +13,7 @@ export class RoomGetterOneService {
 
   public execute(id: RoomId): Observable<Room> {
     return this.http
-      .get<RoomActionResponse>(`${this.API.url_develop}/room/${id}`)
+      .get<RoomActionResponse>(`${this.API.url}/room/${id}`)
       .pipe(map((response) => new RoomActionMapper(response).map()));
   }
 }

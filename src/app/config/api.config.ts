@@ -1,6 +1,3 @@
-
-
-
 export const API = {
-    url_develop: 'http://localhost:3000/api/v1'
-}
+  url: 'https://midway-gpt-backend.onrender.com',
+};

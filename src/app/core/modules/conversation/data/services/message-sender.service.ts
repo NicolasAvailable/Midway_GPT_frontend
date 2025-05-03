@@ -14,14 +14,16 @@ export class MessageSenderService {
   constructor(private http: HttpClient) {}
 
   public execute(body: MessageSenderBody) {
-    const url = `${API.url_develop}/ai/generate`;
+    const url = `${API.url}/ai/generate`;
     return this.http.post<MessageActionResponse>(url, body).pipe(
       map((response) =>
         new MessageActionResponseToMessageMapper(response.data).map()
       ),
       catchError((error: HttpErrorResponse) => {
         const errorMessage = error.error.message;
-        const entity = new MessageSenderErrorToMessageEntityAdapter(errorMessage).adapt()
+        const entity = new MessageSenderErrorToMessageEntityAdapter(
+          errorMessage
+        ).adapt();
         const message = new MessageActionResponseToMessageMapper(
           entity,
           true

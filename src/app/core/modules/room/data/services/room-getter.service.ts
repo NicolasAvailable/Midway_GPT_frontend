@@ -11,7 +11,7 @@ export class RoomGetterService {
   constructor(private http: HttpClient) {}
 
   public execute(): Observable<RoomList> {
-    return this.http.get<RoomResponse>(`${this.API.url_develop}/room`).pipe(
+    return this.http.get<RoomResponse>(`${this.API.url}/room`).pipe(
       map((resp) => resp.data),
       map((rooms) => new RoomEntitiesToRoomsDomainMapper(rooms).map())
     );

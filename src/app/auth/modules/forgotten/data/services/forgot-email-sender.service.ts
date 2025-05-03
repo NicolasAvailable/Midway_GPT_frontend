@@ -16,7 +16,7 @@ export class ForgotEmailSenderService {
 
   public execute(email: string) {
     const body = new ForgotEmailSenderBodyAdapter(email).adapt();
-    const url = `${API.url_develop}/auth/local/send-reset-password`;
+    const url = `${API.url}/auth/local/send-reset-password`;
     return this.http.post(url, body).pipe(
       catchError((error) => {
         this.exceptionService.throw(error.status);

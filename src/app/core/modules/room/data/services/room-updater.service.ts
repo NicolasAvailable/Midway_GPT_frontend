@@ -20,7 +20,7 @@ export class RoomUpdaterService {
   public execute(id: RoomId, body: RoomBodyUpdate): Observable<Room> {
     toast.loading('Cargando...');
     return this.http
-      .patch<RoomActionResponse>(`${this.API.url_develop}/room/${id}`, body)
+      .patch<RoomActionResponse>(`${this.API.url}/room/${id}`, body)
       .pipe(
         catchError(() => {
           return of(null);

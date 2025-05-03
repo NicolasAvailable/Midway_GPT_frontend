@@ -19,7 +19,7 @@ export class RoomRemoverService {
   public execute(id: RoomId): Observable<Room> {
     toast.loading('Cargando...');
     return this.http
-      .delete<RoomActionResponse>(`${this.API.url_develop}/room/${id}`)
+      .delete<RoomActionResponse>(`${this.API.url}/room/${id}`)
       .pipe(
         catchError(() => {
           this.exceptionRoomRemover.throw();
