@@ -1,5 +1,5 @@
 import { Component, inject, WritableSignal } from '@angular/core';
-import { AvatarComponent } from '@midway-UI/global/avatar/avatar.component';
+import { AvatarComponent } from '@midway-ui/global/avatar/avatar.component';
 import { MaterialModule } from '../../../../../shared/modules/material.module';
 import { Profile } from '../../data/models/profile.models';
 import { ProfileDialogService } from '../../data/services/profile-dialog.service';

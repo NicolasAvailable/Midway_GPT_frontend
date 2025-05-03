@@ -5,10 +5,10 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { ButtonComponent } from '@midway-UI/global/button/button.component';
-import { MwInputErrorDirective } from '@midway-UI/global/input/mw-input-error.directive';
-import { MwInputInvalidDirective } from '@midway-UI/global/input/mw-input-invalid.directive';
-import { MwInputDirective } from '@midway-UI/global/input/mw-input.directive';
+import { ButtonComponent } from '@midway-ui/global/button/button.component';
+import { MwInputErrorDirective } from '@midway-ui/global/input/mw-input-error.directive';
+import { MwInputInvalidDirective } from '@midway-ui/global/input/mw-input-invalid.directive';
+import { MwInputDirective } from '@midway-ui/global/input/mw-input.directive';
 import { toast } from 'ngx-sonner';
 import { finalize } from 'rxjs';
 import { EMAIL_REGEX } from '../../../login/data/constants/email-pattern.constants';

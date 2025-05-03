@@ -6,7 +6,7 @@
     "types": ["node"],
     "baseUrl": "src",
     "paths": {
-      "@midway-UI/*": ["app/@midway-UI/*"]
+      "@midway-ui/*": ["app/@midway-ui/*"]
     }
   },
   "files": ["src/main.ts", "src/main.server.ts", "server.ts"],

@@ -5,7 +5,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { ButtonComponent } from '@midway-UI/global/button/button.component';
+import { ButtonComponent } from '@midway-ui/global/button/button.component';
 
 @Component({
   selector: 'mw-alert',

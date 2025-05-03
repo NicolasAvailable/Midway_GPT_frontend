@@ -22,7 +22,7 @@
     "lib": ["ES2022", "dom"],
     "baseUrl": "src",
     "paths": {
-      "@midway-UI/*": ["app/@midway-UI/*"]
+      "@midway-ui/*": ["app/@midway-ui/*"]
     }
   },
   "angularCompilerOptions": {

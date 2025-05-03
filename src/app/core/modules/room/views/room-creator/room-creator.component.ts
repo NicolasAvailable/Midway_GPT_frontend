@@ -7,10 +7,10 @@ import {
 } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { ButtonComponent } from '@midway-UI/global/button/button.component';
-import { MwInputErrorDirective } from '@midway-UI/global/input/mw-input-error.directive';
-import { MwInputInvalidDirective } from '@midway-UI/global/input/mw-input-invalid.directive';
-import { MwInputDirective } from '@midway-UI/global/input/mw-input.directive';
+import { ButtonComponent } from '@midway-ui/global/button/button.component';
+import { MwInputErrorDirective } from '@midway-ui/global/input/mw-input-error.directive';
+import { MwInputInvalidDirective } from '@midway-ui/global/input/mw-input-invalid.directive';
+import { MwInputDirective } from '@midway-ui/global/input/mw-input.directive';
 import { toast } from 'ngx-sonner';
 import { MaterialModule } from '../../../../../shared/modules/material.module';
 import { ProfileCarouselComponent } from '../../components/profile-carousel/profile-carousel.component';
