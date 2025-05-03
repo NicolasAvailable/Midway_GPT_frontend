@@ -25,6 +25,21 @@
   background-color: hsl(359, 100%, 97%) !important;
 }
 
+.chat__overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 30;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.3) 80vw,
+    rgba(0, 0, 0, 0.3) 80vw
+  );
+}
+
 ::ng-deep .chat-start .chat-bubble {
   background-color: var(--color-gray-stroke);
   color: black;
@@ -37,4 +52,46 @@
 
 ::ng-deep .chat-start .chat-bubble::before {
   height: 0.7rem !important;
+}
+
+@media (min-width: 701px) {
+  .chat__container--right {
+    position: relative;
+    transform: none !important;
+    z-index: initial;
+    width: 22rem;
+  }
+
+  .chat__container--right--open {
+    transform: none;
+  }
+}
+
+@media (max-width: 700px) {
+  :host {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+
+  .chat__container--right {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 75vw;
+    max-width: 100%;
+    background-color: white;
+    z-index: 40;
+    transform: translateX(100%);
+  }
+
+  .chat__container--right--open {
+    transform: translateX(0);
+  }
+
+  .chat__overlay {
+    display: block;
+  }
 }

@@ -12,7 +12,7 @@
       class="chat__content flex flex-col overflow-auto justify-center items-center w-full h-full"
     >
       @if (!this.messageStore.get().isLoading()) {
-      <div class="flex flex-col w-1/2 h-full p-2">
+      <div class="flex flex-col w-full md:w-1/2 h-full p-2">
         @for (message of this.messageStore.get().messageList().values; track
         $index) { @if (message.role === 'assistant') {
         <div class="chat chat-start">
@@ -69,3 +69,8 @@
     ></mw-chat-detailer>
   </div>
 </section>
+
+@if (isOpenDetails) {
+<div class="chat__overlay" (click)="isOpenDetails = false"></div>
+
+}

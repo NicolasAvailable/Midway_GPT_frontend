@@ -19,3 +19,10 @@
 .header__right:hover {
   background-color: var(--color-hover-light);
 }
+
+@media (max-width: 700px) {
+  .header__container {
+    height: 63px;
+    padding: 0px 1rem 0px 3.5rem;
+  }
+}

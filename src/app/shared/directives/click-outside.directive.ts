@@ -18,7 +18,7 @@ export class ClickOutsideDirective {
   constructor(private elementRef: ElementRef) {}
 
   @HostListener('document:click', ['$event.target'])
-  onClick(targetElement: HTMLElement) {
+  public onClick(targetElement: HTMLElement) {
     const clickedInside = this.elementRef.nativeElement.contains(targetElement);
     const clickedExcluded = this.excludeElement?.contains(targetElement);
 

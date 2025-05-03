@@ -11,3 +11,9 @@
 .sender__attach__box:hover {
   background-color: var(--color-hover-light);
 }
+
+@media (max-width: 700px) {
+  .sender__container {
+    padding: 0px;
+  }
+}

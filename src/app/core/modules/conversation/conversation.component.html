@@ -3,12 +3,12 @@
     class="hamburger__button absolute top-4 left-4 z-30"
     (click)="toggleSidebar()"
   >
-    <i class="fa-solid fa-bars text-2xl"></i>
+    <i class="fa-solid fa-bars text-xl text-primary"></i>
   </button>
 
   @if (sidebarOpen) {
   <div
-    class="overlay"
+    class="sidebar__overlay"
     [class.overlay-visible]="sidebarOpen"
     (click)="sidebarOpen = false"
   ></div>
