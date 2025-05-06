@@ -61,10 +61,44 @@
   background: linear-gradient(to right, #3c2c9fb2, #c934d2b2);
 }
 
+.hamburguer__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+}
+
 .hamburger__button {
-  background: transparent;
-  border: none;
   display: none;
+  flex-direction: column;
+  gap: 3px;
+  width: 17px;
+  height: 21px;
+  justify-content: center;
+  align-items: flex-start;
+  cursor: pointer;
+  z-index: 50;
+}
+
+.hamburger__button span {
+  display: block;
+  height: 3.5px;
+  border-radius: 2px;
+  width: 100%;
+  background-color: var(--color-main);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Estilo cuando está abierto (forma de X) */
+.hamburger__button.open span:nth-child(1) {
+  transform: translateY(6px) rotate(48deg);
+}
+.hamburger__button.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger__button.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-48deg);
 }
 
 .sidebar__overlay {
@@ -111,7 +145,7 @@
 
 @media (max-width: 700px) {
   .hamburger__button {
-    display: block;
+    display: flex;
   }
 
   .sidebar__content {

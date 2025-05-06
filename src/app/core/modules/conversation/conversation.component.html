@@ -1,10 +1,14 @@
 <section class="home__container relative">
-  <button
-    class="hamburger__button absolute top-4 left-4 z-30"
+  <div
+    class="hamburguer__box absolute top-1.5 left-0 z-30"
     (click)="toggleSidebar()"
   >
-    <i class="fa-solid fa-bars text-xl text-primary"></i>
-  </button>
+    <button class="hamburger__button" [class.open]="sidebarOpen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 
   @if (sidebarOpen) {
   <div
