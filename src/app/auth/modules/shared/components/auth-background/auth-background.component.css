@@ -10,7 +10,7 @@ input::-webkit-input-placeholder {
 
 .auth__container {
   display: flex;
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
 }
 

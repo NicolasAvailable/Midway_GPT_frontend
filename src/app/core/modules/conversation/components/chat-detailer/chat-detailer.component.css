@@ -1,6 +1,6 @@
 .detailer__container {
   display: grid;
-  height: 100vh;
+  height: 100dvh;
   background-color: var(--color-gray-primary);
   border-left: 1px solid var(--color-gray-stroke);
 }
