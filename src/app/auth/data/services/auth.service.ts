@@ -18,7 +18,7 @@ export class AuthService {
   ) {}
 
   public login(body: LoginBody, cb: Function) {
-    toast.loading('Cargando...');
+    toast.loading('Cargando...', { duration: 100000000 });
     this.loggerService
       .execute(body)
       .pipe(finalize(() => cb()))
@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   public register(body: RegisterBody, cb: Function) {
-    toast.loading('Cargando...');
+    toast.loading('Cargando...', { duration: 100000000 });
     this.registerService
       .execute(body)
       .pipe(finalize(() => cb()))
