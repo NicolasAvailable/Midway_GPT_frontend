@@ -59,7 +59,6 @@
     position: relative;
     transform: none !important;
     z-index: initial;
-    width: 22rem;
   }
 
   .chat__container--right--open {

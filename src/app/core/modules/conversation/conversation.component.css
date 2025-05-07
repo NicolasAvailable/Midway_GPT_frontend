@@ -90,7 +90,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-/* Estilo cuando está abierto (forma de X) */
 .hamburger__button.open span:nth-child(1) {
   transform: translateY(6px) rotate(48deg);
 }
