@@ -1,7 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, inject, WritableSignal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AvatarComponent } from '@midway-ui/global/avatar/avatar.component';
 import { switchMap, tap } from 'rxjs';
 import { ClickOutsideDirective } from '../../../../../shared/directives/click-outside.directive';
 import { Profile } from '../../../profile/data/models/profile.models';
@@ -13,6 +12,7 @@ import { MessageService } from '../../data/services/message.service';
 import { MessageStore } from '../../data/store/message.store';
 import { ChatDetailerComponent } from '../chat-detailer/chat-detailer.component';
 import { ChatHeaderComponent } from '../chat-header/chat-header.component';
+import { ChatMessageComponent } from '../chat-message/chat-message.component';
 import { ChatSenderComponent } from '../chat-sender/chat-sender.component';
 
 @Component({
@@ -20,10 +20,10 @@ import { ChatSenderComponent } from '../chat-sender/chat-sender.component';
   standalone: true,
   imports: [
     NgClass,
-    AvatarComponent,
     ChatHeaderComponent,
     ChatDetailerComponent,
     ChatSenderComponent,
+    ChatMessageComponent,
     ClickOutsideDirective,
     AutoScrollDirective,
   ],

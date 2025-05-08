@@ -1,38 +1,34 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { eventBus } from '../../../../../shared/base/event-bus.base';
 import { RoomId } from '../../../room/data/interfaces/room-response.interfaces';
 import { MessageSenderBody } from '../interfaces/message-sender-body.interfaces';
-import { Message } from '../models/message.models';
 import { MessageStore } from '../store/message.store';
+import { MessageFromRoomSaverService } from './message-from-room-saver.service';
+import { MessageFromUserSaverService } from './message-from-user-saver.service';
 import { MessageGetterService } from './message-getter.service';
-import { MessageSenderService } from './message-sender.service';
+import { RoomMessageSenderService } from './room-message-sender.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MessageService {
+  private http = inject(HttpClient);
   private messageStore = inject(MessageStore);
-  constructor(private http: HttpClient) {}
+  private messageGetter = inject(MessageGetterService);
+  private roomMessageSender = inject(RoomMessageSenderService);
+  private messageFromUserSaver = inject(MessageFromUserSaverService);
+  private messageFromRoomSaver = inject(MessageFromRoomSaverService);
+
+  constructor() {}
 
   public get(roomId: RoomId) {
-    const messageGetter = new MessageGetterService(this.http);
-    return messageGetter.execute(roomId);
+    return this.messageGetter.execute(roomId);
   }
 
   public send(body: MessageSenderBody) {
-    eventBus.emit('new.message');
-    this.messageStore.get().messageList.update((list) => {
-      list.add(new Message('', 'user', body.prompt));
-      return list;
-    });
-    const messageSender = new MessageSenderService(this.http);
-    return messageSender.execute(body).subscribe((message) =>
-      this.messageStore.get().messageList.update((list) => {
-        list.add(message);
-        eventBus.emit('new.message');
-        return list;
-      })
-    );
+    this.messageFromUserSaver.execute(body);
+    return this.roomMessageSender
+      .execute(body)
+      .subscribe((message) => this.messageFromRoomSaver.execute(message));
   }
 }

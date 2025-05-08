@@ -1,0 +1,28 @@
+@if (message.role === 'assistant') {
+<div class="chat chat-start">
+  <div class="chat-image avatar cursor-pointer" (click)="isOpenDetails = true">
+    <mw-avatar size="small" [url]="room.image"></mw-avatar>
+  </div>
+  <div
+    class="chat-bubble min-h-3"
+    [ngClass]="{ 'chat__bubble--error': message.hasError }"
+  >
+    <p class="text-sm" [innerHTML]="message.content"></p>
+  </div>
+  <div class="chat-footer opacity-50">
+    <time class="text-xs opacity-50">12:45</time>
+  </div>
+</div>
+} @else {
+<div class="chat chat-end">
+  <div class="chat-image avatar">
+    <mw-avatar size="small" [name]="profile().name"></mw-avatar>
+  </div>
+  <div class="chat-bubble min-h-3">
+    <p class="text-sm" [innerHTML]="message.content"></p>
+  </div>
+  <div class="chat-footer opacity-50">
+    <time class="text-xs opacity-50">12:46</time>
+  </div>
+</div>
+}

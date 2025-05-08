@@ -10,7 +10,7 @@ import { MessageActionResponseToMessageMapper } from '../models/mappers/messange
 @Injectable({
   providedIn: 'root',
 })
-export class MessageSenderService {
+export class RoomMessageSenderService {
   constructor(private http: HttpClient) {}
 
   public execute(body: MessageSenderBody) {
@@ -20,16 +20,21 @@ export class MessageSenderService {
         new MessageActionResponseToMessageMapper(response.data).map()
       ),
       catchError((error: HttpErrorResponse) => {
-        const errorMessage = error.error.message;
-        const entity = new MessageSenderErrorToMessageEntityAdapter(
-          errorMessage
-        ).adapt();
-        const message = new MessageActionResponseToMessageMapper(
-          entity,
-          true
-        ).map();
+        const message = this.becomeErrorToMessage(error);
         return of(message);
       })
     );
+  }
+
+  private becomeErrorToMessage(error: HttpErrorResponse) {
+    const errorMessage = error.error.message;
+    const entity = new MessageSenderErrorToMessageEntityAdapter(
+      errorMessage
+    ).adapt();
+    const message = new MessageActionResponseToMessageMapper(
+      entity,
+      true
+    ).map();
+    return message;
   }
 }
