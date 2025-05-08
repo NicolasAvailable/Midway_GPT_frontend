@@ -1,3 +1,3 @@
 export const API = {
-  url: 'http://localhost:3000/api/v1',
+  url: 'https://midway-gpt-backend.onrender.com/api/v1',
 };

@@ -16,7 +16,10 @@
         @for (message of this.messageStore.get().messageList().values; track
         $index) { @if (message.role === 'assistant') {
         <div class="chat chat-start">
-          <div class="chat-image avatar">
+          <div
+            class="chat-image avatar cursor-pointer"
+            (click)="isOpenDetails = true"
+          >
             <mw-avatar size="small" [url]="room.image"></mw-avatar>
           </div>
           <div
