@@ -1,4 +1,16 @@
-@if (message.role === 'assistant') {
+@if(message.state === 'loading') {
+<div class="chat chat-start">
+  <div class="chat-image avatar cursor-pointer" (click)="isOpenDetails = true">
+    <mw-avatar size="small" [url]="room.image"></mw-avatar>
+  </div>
+  <div class="chat-bubble flex pt-0 pb-0">
+    <span class="loading loading-dots loading-sm"></span>
+  </div>
+  <div class="chat-footer opacity-50">
+    <time class="text-xs opacity-50">12:45</time>
+  </div>
+</div>
+} @else { @if (message.role === 'assistant') {
 <div class="chat chat-start">
   <div class="chat-image avatar cursor-pointer" (click)="isOpenDetails = true">
     <mw-avatar size="small" [url]="room.image"></mw-avatar>
@@ -25,4 +37,4 @@
     <time class="text-xs opacity-50">12:46</time>
   </div>
 </div>
-}
+} }

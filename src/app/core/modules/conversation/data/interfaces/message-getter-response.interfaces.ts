@@ -19,3 +19,5 @@ export interface MessageEntity {
 }
 
 export type Role = 'user' | 'assistant';
+
+export type State = 'success' | 'loading';

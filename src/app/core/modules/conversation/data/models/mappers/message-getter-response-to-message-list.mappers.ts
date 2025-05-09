@@ -14,6 +14,7 @@ export class MessageGetterResponseToMessageListMapper {
             message._id,
             message.role,
             new MessageSpecialCharactersMappers(message.message).map(),
+            'success',
             message.createdAt
           )
       )

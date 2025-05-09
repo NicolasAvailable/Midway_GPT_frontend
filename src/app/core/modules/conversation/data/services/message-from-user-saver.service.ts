@@ -12,7 +12,7 @@ export class MessageFromUserSaverService {
 
   public execute(body: MessageSenderBody) {
     this.messageStore.get().messageList.update((list) => {
-      list.add(new Message('', 'user', body.prompt));
+      list.add(new Message('', 'user', body.prompt, 'success'));
       eventBus.emit('new.message');
       return list;
     });

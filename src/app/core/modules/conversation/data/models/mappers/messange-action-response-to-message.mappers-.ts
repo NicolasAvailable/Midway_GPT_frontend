@@ -12,6 +12,7 @@ export class MessageActionResponseToMessageMapper {
       this.entity._id,
       this.entity.role,
       new MessageSpecialCharactersMappers(this.entity.message).map(),
+      'success',
       this.entity.createdAt,
       this.hasError
     );

@@ -1,8 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { RoomId } from '../../../room/data/interfaces/room-response.interfaces';
 import { MessageSenderBody } from '../interfaces/message-sender-body.interfaces';
-import { MessageStore } from '../store/message.store';
+import { RoomResponseLoaderCommand } from './commands/room-response-loader.command';
 import { MessageFromRoomSaverService } from './message-from-room-saver.service';
 import { MessageFromUserSaverService } from './message-from-user-saver.service';
 import { MessageGetterService } from './message-getter.service';
@@ -12,14 +11,11 @@ import { RoomMessageSenderService } from './room-message-sender.service';
   providedIn: 'root',
 })
 export class MessageService {
-  private http = inject(HttpClient);
-  private messageStore = inject(MessageStore);
   private messageGetter = inject(MessageGetterService);
   private roomMessageSender = inject(RoomMessageSenderService);
   private messageFromUserSaver = inject(MessageFromUserSaverService);
   private messageFromRoomSaver = inject(MessageFromRoomSaverService);
-
-  constructor() {}
+  private roomResponseLoaderCommand = inject(RoomResponseLoaderCommand);
 
   public get(roomId: RoomId) {
     return this.messageGetter.execute(roomId);
@@ -27,8 +23,10 @@ export class MessageService {
 
   public send(body: MessageSenderBody) {
     this.messageFromUserSaver.execute(body);
-    return this.roomMessageSender
-      .execute(body)
-      .subscribe((message) => this.messageFromRoomSaver.execute(message));
+    this.roomResponseLoaderCommand.execute();
+    return this.roomMessageSender.execute(body).subscribe((message) => {
+      this.roomResponseLoaderCommand.undo();
+      this.messageFromRoomSaver.execute(message);
+    });
   }
 }
