@@ -8,7 +8,7 @@ export class ForgotEmailSenderBodyAdapter extends Adapter<ForgotEmailSenderBody>
   public override adapt(): ForgotEmailSenderBody {
     return {
       email: this.email,
-      domain: 'http://localhost:4200',
+      domain: window.location.origin,
     };
   }
 }
