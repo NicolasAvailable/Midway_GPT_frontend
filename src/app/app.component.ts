@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    // this.verifyIfUserIsLogged();
+    this.verifyIfUserIsLogged();
   }
 
   private verifyIfUserIsLogged() {
