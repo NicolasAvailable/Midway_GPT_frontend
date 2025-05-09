@@ -4,7 +4,12 @@
       <img src="assets/img/logo-midway.svg" />
     </div>
     <div class="login__inputs__box">
-      <form class="login__form__content" [formGroup]="form" (ngSubmit)="send()">
+      <form
+        class="login__form__content"
+        [formGroup]="form"
+        (ngSubmit)="send()"
+        (keyup.enter)="send()"
+      >
         <div class="login__input__email input__box">
           <div class="login__input__box">
             <label class="input__label text-sm" for="email"> Email </label>
@@ -53,6 +58,7 @@
             />
             <button
               class="show__password"
+              type="button"
               (click)="showPassword = !showPassword"
             >
               @if (showPassword) {
@@ -66,6 +72,7 @@
         <div class="login__forgot__password__box">
           <button
             class="forgot__password__text"
+            type="button"
             [routerLink]="['../forgotten']"
           >
             ¿Olvidaste tu contraseña?

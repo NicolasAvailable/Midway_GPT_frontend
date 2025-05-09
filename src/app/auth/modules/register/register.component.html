@@ -4,7 +4,12 @@
       <img src="assets/img/logo-midway.svg" />
     </div>
     <div class="register__inputs__box">
-      <form class="register__form__content" [formGroup]="form">
+      <form
+        class="register__form__content"
+        [formGroup]="form"
+        (ngSubmit)="send()"
+        (keyup.enter)="send()"
+      >
         <p class="text-base font-medium">
           ¡Crea una cuenta para empezar tu aventura!
         </p>
@@ -82,9 +87,14 @@
             />
             <button
               class="show__password"
+              type="button"
               (click)="showPassword = !showPassword"
             >
-              <i class="fa-solid fa-eye show__icon"></i>
+              @if (showPassword) {
+              <i class="fa-solid fa-eye-slash text-xs show__icon"></i>
+              } @else {
+              <i class="fa-solid fa-eye text-xs show__icon"></i>
+              }
             </button>
           </div>
         </div>
@@ -126,9 +136,14 @@
             />
             <button
               class="show__password"
+              type="button"
               (click)="showConfirmPassword = !showConfirmPassword"
             >
-              <i class="fa-solid fa-eye show__icon"></i>
+              @if (showConfirmPassword) {
+              <i class="fa-solid fa-eye-slash text-xs show__icon"></i>
+              } @else {
+              <i class="fa-solid fa-eye text-xs show__icon"></i>
+              }
             </button>
           </div>
         </div>
