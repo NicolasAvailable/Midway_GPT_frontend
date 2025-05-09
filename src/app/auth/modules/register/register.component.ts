@@ -45,6 +45,7 @@ export class RegisterComponent implements OnInit {
 
   public send() {
     if (this.form.invalid) return;
+    this.isLoading = true;
     const body = new RegisterBodyAdapter(this.form).adapt();
     this.authService.register(body, () => (this.isLoading = false));
   }
