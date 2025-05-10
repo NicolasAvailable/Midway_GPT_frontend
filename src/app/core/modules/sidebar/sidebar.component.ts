@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MwInputErrorDirective } from '@midway-ui/global/input/mw-input-error.directive';
@@ -41,6 +41,8 @@ import {
   styleUrl: './sidebar.component.css',
 })
 export class SidebarComponent implements OnInit {
+  @Output() onSelectedRoom = new EventEmitter();
+
   protected router = inject(Router);
   protected roomDialogService = inject(RoomDialogService);
   protected roomStore = inject(RoomStore);

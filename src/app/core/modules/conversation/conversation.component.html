@@ -3,26 +3,29 @@
     class="hamburguer__box absolute top-1.5 left-0 z-30"
     (click)="toggleSidebar()"
   >
-    <button class="hamburger__button" [class.open]="sidebarOpen">
+    <button class="hamburger__button" [class.open]="isSidebarOpen">
       <span></span>
       <span></span>
       <span></span>
     </button>
   </div>
 
-  @if (sidebarOpen) {
+  @if (isSidebarOpen) {
   <div
     class="sidebar__overlay"
-    [class.overlay-visible]="sidebarOpen"
-    (click)="sidebarOpen = false"
+    [class.overlay-visible]="isSidebarOpen"
+    (click)="isSidebarOpen = false"
   ></div>
   }
 
   <div
     class="sidebar__content h-screen fixed inset-y-0 left-0 z-20 bg-white shadow-lg transform transition-transform duration-300"
-    [class.sidebar-hidden]="!sidebarOpen"
+    [class.sidebar-hidden]="!isSidebarOpen"
   >
-    <mw-sidebar class="w-full h-full"></mw-sidebar>
+    <mw-sidebar
+      class="w-full h-full"
+      (onSelectedRoom)="isSidebarOpen = false"
+    ></mw-sidebar>
   </div>
 
   <div class="main__content h-screen flex-1 ml-0">

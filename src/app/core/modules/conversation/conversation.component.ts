@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./conversation.component.css'],
 })
 export class ConversationComponent {
-  protected sidebarOpen = false;
+  protected isSidebarOpen = false;
 
   protected toggleSidebar() {
-    this.sidebarOpen = !this.sidebarOpen;
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 }
